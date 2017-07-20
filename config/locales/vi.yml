@@ -1,0 +1,19 @@
+vi:
+  helpers:
+    application_helper:
+      full_title: "Chào mừng đến với trang nghe nhạc của Rikkeisoft"
+  views:
+    home_pages:
+      home:
+        title: "Trang Chủ"
+    layouts:
+      header:
+        logo: "Rikkei Mp3"
+        text_search: "Nhập nội dung cần tìm"
+        home: "Trang Chủ"
+        upload: "Đăng bài hát"
+        signup: "Đăng kí"
+        login: "Đăng nhập"
+      footer:
+        copy_right: "2017 Trang web được phát triển bởi"
+        author_name: "Dung Vu"

@@ -1,0 +1,63 @@
+<div class="rank-song">
+  <div class="pull-left">
+    <p>
+      <%= link_to "#" do %>
+        BXH Bài Hát <i class="fa fa-angle-right"></i>
+      <% end %>
+    </p>
+  </div>
+  <div class="pull-right">
+      <p>
+        <%= link_to "#" do %>
+          <i class="fa fa-play-circle-o"></i>
+        <% end %>
+      </p>
+  </div>
+  <div class="clearfix"></div>
+  <div class="tab-song">
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <%= link_to "#menu1", "data-toggle": "tab" do %>
+          Việt Nam
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "#menu2", "data-toggle": "tab" do %>
+          Âu Mỹ
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "#menu3", "data-toggle": "tab" do %>
+          Hàn Quốc
+        <% end %>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="menu1" class="tab-pane fade in active">
+          <%= render 'home_pages/songs' %>
+          <%= render 'home_pages/songs' %>
+          <%= render 'home_pages/songs' %>
+          <%= render 'home_pages/songs' %>
+          <%= render 'home_pages/songs' %>
+          <%= render 'home_pages/songs' %>
+      </div>
+      <div id="menu2" class="tab-pane fade">
+          <%= render 'home_pages/songs' %>
+          <%= render 'home_pages/songs' %>
+          <%= render 'home_pages/songs' %>
+          <%= render 'home_pages/songs' %>
+          <%= render 'home_pages/songs' %>
+          <%= render 'home_pages/songs' %>
+      </div>
+      <div id="menu3" class="tab-pane fade">
+          <%= render 'home_pages/songs' %>
+          <%= render 'home_pages/songs' %>
+          <%= render 'home_pages/songs' %>
+          <%= render 'home_pages/songs' %>
+          <%= render 'home_pages/songs' %>
+          <%= render 'home_pages/songs' %>
+      </div>
+    </div>
+  </div>
+</div>

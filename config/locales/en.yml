@@ -20,4 +20,21 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  helpers:
+    application_helper:
+      full_title: "Welcome to RikkeiSoft Mp3 App"
+  views:
+    home_pages:
+      home:
+        title: "Home"
+    layouts:
+      header:
+        logo: "Rikkei Mp3"
+        text_search: "Input data search"
+        home: "Home"
+        upload: "Upload mp3"
+        signup: "Sign up"
+        login: "Log in"
+      footer:
+        copy_right: "2017 Website developed by"
+        author_name: "Dung Vu"
