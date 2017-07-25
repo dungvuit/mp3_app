@@ -1,0 +1,41 @@
+<div class="modal fade" id="song_modal_<%= song.id %>" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <%= button_tag class: "close", "data-dismiss" => "modal" do %>
+          &times;
+        <% end %>
+        <h4 class="modal-title"><%= t "views.modal.title_details" %></h4>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <%= image_tag song.picture, class: "size-img-modal" %>
+        </div>
+        <div class="col-md-7">
+          <div class="info-song">
+            <p><%= t "views.layouts.modal-song.id" %>:&nbsp;
+              <%= song.id %></p>
+            <p><%= t "views.layouts.modal-song.name" %>:&nbsp;
+              <%= song.name %></p>
+            <p>
+              <audio src="<%= song.url_song %>" type="audio/mpeg" controls></audio>
+            </p>
+         </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="info-song">
+            <p><%= t "views.layouts.modal-song.content" %>:&nbsp;
+              <%= song.content %></p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <%= button_tag class: "btn btn-default", "data-dismiss" => "modal" do %>
+          <%= t "views.layouts.modal-song.close" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

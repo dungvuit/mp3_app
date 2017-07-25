@@ -20,14 +20,42 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  error_form:
+    errors_contain: "The form contains"
+    error: "error"
+  button:
+    create: "Create"
+    export: "Export"
   helpers:
     application_helper:
       full_title: "Welcome to RikkeiSoft Mp3 App"
   views:
+    admins:
+      form:
+        action: "Action"
+      form_confirm: "Are You Sure?"
+      songs:
+        title:
+          index: "Show Songs"
+          edit: "Edit Songs"
+          new: "Create Song"
+          save: "Save"
+        text_form:
+          images: "Thumbnail"
+          name: "Song Name"
+          url_song: "Play Song"
+          content: "Content Song"
     home_pages:
       home:
         title: "Home"
     layouts:
+      modal-song:
+          id: "ID"
+          images: "Thumbnail"
+          name: "Song Name"
+          url_song: "Play Song"
+          content: "Content Song"
+          close: "Close"
       header:
         logo: "Rikkei Mp3"
         text_search: "Input data search"

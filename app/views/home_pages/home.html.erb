@@ -1,19 +1,17 @@
 <% provide :title, t("views.home_pages.home.title") %>
-<div class="wrap-content">
-  <div class="row">
-    <div class="col-md-8">
-      <%= render 'home_pages/slide' %>
-      <%= render 'home_pages/playlist' %>
-      <%= render 'home_pages/album' %>
-      <%= render 'home_pages/video' %>
+<div class="container">
+  <div class="wrap-content">
+    <div class="row">
+      <div class="col-md-8">
+        <%= render 'home_pages/slide' %>
+        <%= render 'home_pages/playlist' %>
+        <%= render 'home_pages/album' %>
+        <%= render 'home_pages/video' %>
+      </div>
+      <div class="col-md-4">
+        <%= render 'home_pages/rank_song' %>
+      </div>
+      <div class="clearfix"></div>
     </div>
-    <div class="col-md-4">
-      <%= render 'home_pages/rank_song' %>
-      <br><br>
-      <%= render 'home_pages/rank_song' %>
-      <br><br>
-      <%= render 'home_pages/rank_song' %>
-    </div>
-    <div class="clearfix"></div>
   </div>
 </div>

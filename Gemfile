@@ -16,6 +16,14 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass', '3.3.7'
 gem 'font-awesome-rails'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
+gem 'jwplayer-rails'
+gem 'will_paginate'
+gem 'bcrypt'
+gem 'carrierwave-audio'
+gem 'ckeditor'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -26,6 +34,7 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pry'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
