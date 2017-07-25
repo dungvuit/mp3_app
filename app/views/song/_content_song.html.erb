@@ -1,0 +1,7 @@
+<div class="content-song">
+  <p><b>Lời bài hát: <%= @song.name %></b></p>
+  <%= @song.content.html_safe %>
+</div>
+<br>
+<button id="hide" style="display: none;">« Rút gọn</button>
+<button id="show">Xem thêm »</button>

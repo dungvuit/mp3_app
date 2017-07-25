@@ -1,0 +1,34 @@
+<% provide :title, t("views.admins.songs.title.index") %>
+<div class="main-content">
+  <div class="container">
+    <div class="info-manager">
+      <div class="title-manager pull-left">
+        <h2><%= t "views.admins.songs.title.index" %></h2>
+      </div>
+      <div class="button-manager pull-right">
+        <ul>
+          <li>
+            <%= link_to new_admins_song_path do %>
+              <i class="glyphicon glyphicon-plus"></i>
+              <%= t "button.create" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admins_songs_path(format: "xls") do %>
+              <i class="glyphicon glyphicon-export"></i>
+              <%= t "button.export" %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="table-responsive">
+      <%= will_paginate %>
+        <table class="table table-bordered table-hover">
+         <%= render "list_song" %>
+        </table>
+      <%= will_paginate %>
+    </div>
+  </div>
+</div>

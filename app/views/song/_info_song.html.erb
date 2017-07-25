@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-2">
+    <%= image_tag @song.picture, class: "size-img-thumbnail" %>
+  </div>
+  <div class="col-md-10">
+    <div class="info-song">
+      <p>
+        <span class="song-name">
+          <%= @song.name %> -
+        </span>
+        <span class="singer-name">
+          <%= link_to "#" do %>
+            Khắc Hưng,
+          <% end %>
+          <%= link_to "#" do %>
+            ERIK,
+          <% end %>
+          <%= link_to "#" do %>
+            MIN
+          <% end %>
+        </span>
+      </p>
+      <p>
+        <span class="author-name">
+          Nhạc sĩ: Kai Đinh
+        </span>&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="category-name">
+          Thể loại: Nhạc Trẻ
+        </span>
+      </p>
+      <p>Lượt nghe: 515,932</p>
+    </div>
+  </div>
+</div>
+<br><br>
+<p>
+  <audio src="<%= @song.url_song %>" type="audio/mpeg" controls></audio>
+</p>
+<%= render 'song/content_song' %>

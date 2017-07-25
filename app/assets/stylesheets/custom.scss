@@ -1,11 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.container {
-  width: 970px;
-  padding: 0;
-}
-
 body {
   background: #F2F2F2;
   ul {
@@ -15,170 +10,224 @@ body {
   }
 }
 
-/* header */
-header{
-  background: #F0F0F0;
-  padding: 15px;
-  position: relative;
-  #search-header {
-    padding: 5px 10px;
-    width: 350px;
-    border: 1px solid #000;
+#user {
+  .size-img-thumbnail {
+    height: 100%;
+    width: 95px;
   }
-  #button-search {
-    background: none;
-    border: none;
-    font-size: 22px;
-    position: absolute;
-    right: 132px;
-    top: 2px;
-    color: #a6a6a6;
-  }
-  #logo {
-    height: 30px;
-    width: 110px;
-  }
-  .login {
-    padding:  0 5px;
+  a {
+    text-decoration: none;
     color: #000;
     &:hover {
       color: #3399ff;
     }
   }
-  .language {
-    padding: 0 0 0 5px;
+  .container {
+    width: 970px;
+    padding: 0;
   }
-  a {
-    color: #fff;
-    text-decoration: none;
-    &:hover {
+
+  /* header */
+  header{
+    background: #F0F0F0;
+    padding: 15px;
+    position: relative;
+    #search-header {
+      padding: 5px 10px;
+      width: 350px;
+      border: 1px solid #000;
+    }
+    #button-search {
+      background: none;
+      border: none;
+      font-size: 22px;
+      position: absolute;
+      right: 132px;
+      top: 2px;
+      color: #a6a6a6;
+    }
+    #logo {
+      height: 30px;
+      width: 110px;
+    }
+    .login {
+      padding:  0 5px;
+      color: #000;
+      &:hover {
+        color: #3399ff;
+      }
+    }
+    .language {
+      padding: 0 0 0 5px;
+    }
+    a {
       color: #fff;
       text-decoration: none;
+      &:hover {
+        color: #fff;
+        text-decoration: none;
+      }
     }
   }
-}
-nav {
-  background: #4C6BA4;
-  .nav {
-    li {
-      display: inline-block;
-      #home {
-        font-size: 20px;
-        padding: 0 15px;
-        &:hover {
-          background: none;
+
+  nav {
+    background: #4C6BA4;
+    .nav {
+      li {
+        display: inline-block;
+        #home {
+          font-size: 20px;
+          padding: 0 15px;
+          &:hover {
+            background: none;
+          }
+        }
+        #upload {
+          font-size: 20px;
+          padding: 6px 0 0 0;
+          &:hover {
+            background: none;
+            color: #000;
+          }
+        }
+        a {
+          color: #fff;
+          &:hover {
+            background: none;
+            color: #000;
+          }
         }
       }
-      #upload {
+    }
+  }
+
+  /* content */
+  .wrap-content {
+    background: #fff;
+    padding: 10px;
+    button {
+      border: none;
+      background: #4C6BA4;
+      color: #fff;
+      font: 12px/22px Tahoma;
+      border-radius: 2px;
+      width: auto;
+      &:hover {
+        background: #777777;
+        transition: 0.3s;
+      }
+    }
+    .content-song {
+      padding: 30px 20px;
+      background: #F5F5F5;
+      overflow-y: auto;
+      overflow-x: hidden;
+      width: 100%;
+      height: 200px;
+      position: relative;
+      #show {
+        position: absolute;
+        bottom: 0;
+      }
+    }
+    .info-song {
+      .song-name {
         font-size: 20px;
-        padding: 6px 0 0 0;
-        &:hover {
-          background: none;
+        font-weight: bold;
+      }
+      .singer-name {
+        font-size: 15px;
+        color: #bfbfbf;
+      }
+    }
+    .rank-song {
+      max-width: 100%;
+      .tab-song {
+        .tab-content {
+          overflow-y: auto;
+          overflow-x: hidden;
+          height: 400px;
+          p {
+            font-size: 15px;
+            margin: 10px 0;
+          }
+          .author-song {
+            font-size: 10px;
+            color: #a6a6a6;
+          }
+          .songs {
+            margin: 0 0 10px 0;
+            border-bottom: 1px solid #e6e6e6;
+          }
+        }
+      }
+      p {
+        font-size: 25px;
+        a {
+          text-decoration: none;
+          color: #a6a6a6;
+          &:hover {
+            color: #3399ff;
+          }
+        }
+      }
+    }
+    .playlist {
+      h3 {
+        a {
+          text-decoration: none;
+          color: #3399ff;
+        }
+      }
+    }
+    .slider {
+      max-width: 100%;
+    }
+    ul {
+      padding: 0;
+      margin: 0;
+      .playlist-li{
+        .thumbnail-playlist {
+          height: auto;
+          max-width: 100%;
+        }
+        a {
+          text-decoration: none;
           color: #000;
+          font-weight: 40px;
+          &:hover {
+            color: #3399ff;
+          }
         }
       }
+      .slider-li {
+        display: inline-block;
+        margin: 5px 0;
+        width: 121.4px;
+        a {
+          .logo-slider {
+            width: 100%;
+            height: 50px;
+          }
+        }
+      }
+    }
+  }
+
+  /* footer */
+  footer {
+    background: #222428;
+    padding: 20px;
+    text-align: center;
+    span {
+      color: #fff;
       a {
+        text-decoration: none;
         color: #fff;
         &:hover {
-          background: none;
-          color: #000;
-        }
-      }
-    }
-  }
-}
-
-/* content */
-.wrap-content {
-  background: #fff;
-  padding: 10px;
-  .rank-song {
-    max-width: 100%;
-    .tab-song {
-      .tab-content {
-        overflow-y: auto;
-        overflow-x: hidden;
-        height: 400px;
-        p {
-          font-size: 15px;
-          margin: 10px 0;
-        }
-        .author-song {
-          font-size: 10px;
-          color: #a6a6a6;
-        }
-        .songs {
-          margin: 0 0 10px 0;
-          border-bottom: 1px solid #e6e6e6;
-        }
-      }
-    }
-    p {
-      font-size: 25px;
-      a {
-        text-decoration: none;
-        color: #a6a6a6;
-        &:hover {
+          text-decoration: none;
           color: #3399ff;
         }
-      }
-    }
-  }
-  .playlist {
-    h3 {
-      a {
-        text-decoration: none;
-        color: #3399ff;
-      }
-    }
-  }
-  .slider {
-    max-width: 100%;
-  }
-  ul {
-    padding: 0;
-    margin: 0;
-    .playlist-li{
-      .thumbnail-playlist {
-        height: auto;
-        max-width: 100%;
-      }
-      a {
-        text-decoration: none;
-        color: #000;
-        font-weight: 40px;
-        &:hover {
-          color: #3399ff;
-        }
-      }
-    }
-    .slider-li {
-      display: inline-block;
-      margin: 5px 0;
-      width: 121.4px;
-      a {
-        .logo-slider {
-          width: 100%;
-          height: 50px;
-        }
-      }
-    }
-  }
-}
-
-/* footer */
-footer {
-  background: #222428;
-  padding: 20px;
-  text-align: center;
-  span {
-    color: #fff;
-    a {
-      text-decoration: none;
-      color: #fff;
-      &:hover {
-        text-decoration: none;
-        color: #3399ff;
       }
     }
   }
