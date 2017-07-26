@@ -24,6 +24,8 @@ gem 'will_paginate'
 gem 'bcrypt'
 gem 'carrierwave-audio'
 gem 'ckeditor'
+gem 'toastr-rails'
+gem 'bxslider-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri

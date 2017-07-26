@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 
 body {
   background-color: #eeeeee !important;
@@ -204,22 +205,6 @@ body {
     width: 160px;
     padding: 8px 0;
     margin: 0 0 0 50px;
-  }
-
-  .info-book {
-    p {
-      text-align: left;
-      margin: 0;
-      padding: 5px 12px;
-      a {
-        color: red;
-        text-decoration: none;
-        &:hover {
-          color: #38B8E6;
-          text-decoration: none;
-        }
-      }
-    }
   }
 
   .info-author {

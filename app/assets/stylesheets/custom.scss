@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 
 body {
   background: #F2F2F2;
@@ -11,6 +12,9 @@ body {
 }
 
 #user {
+  .bx-wrapper {
+    z-index: 999;
+  }
   .size-img-thumbnail {
     height: 100%;
     width: 95px;
@@ -190,13 +194,32 @@ body {
         .thumbnail-playlist {
           height: auto;
           max-width: 100%;
+          opacity: 0.9;
         }
         a {
           text-decoration: none;
           color: #000;
           font-weight: 40px;
+          position: relative;
+          .custom-icon-play {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            color: #fff;
+            transform: scale(0);
+          }
           &:hover {
             color: #3399ff;
+            top: 50%;
+            transition: 0.3s;
+            .custom-icon-play {
+              transform: scale(4);
+              transition: 0.3s;
+            }
+            .thumbnail-playlist {
+              opacity: 1;
+              transition: 0.3s;
+            }
           }
         }
       }

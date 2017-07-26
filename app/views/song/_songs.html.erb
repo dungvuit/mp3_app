@@ -1,0 +1,25 @@
+<% @songs.each do |song| %>
+  <div class="songs">
+    <div class="row">
+      <div class="col-md-2">
+        <p>1</p>
+      </div>
+      <div class="col-md-7">
+        <%= link_to song_path(song) do %>
+          <p><%= song.name %></p>
+        <% end %>
+        <span class="author-song">
+          <%= link_to "#" do %>
+             MIN,
+          <% end %>
+          <%= link_to "#" do %>
+            Mr.A
+          <% end %>
+        </span>
+      </div>
+      <div class="col-md-3">
+        <p><%= song.count_view %></p>
+      </div>
+    </div>
+  </div>
+<% end %>

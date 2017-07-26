@@ -37,9 +37,12 @@
         <li class="<%= "actived" if current_page?(admins_songs_path) %>">
           <%= link_to t("Song"), admins_songs_path %></li>
         <li><%= link_to "Album" %></li>
+        <li class="<%= "actived" if current_page?(admins_categories_path) %>">
+          <%= link_to t("Categories"), admins_categories_path %></li>
         <li><%= link_to "Video" %></li>
         <li><%= link_to "Singer" %></li>
-        <li><%= link_to "Author" %></li>
+        <li class="<%= "actived" if current_page?(admins_authors_path) %>">
+          <%= link_to t("Author"), admins_authors_path %></li>
         <li><%= link_to "BXH" %></li>
       </ul>
     </div>
