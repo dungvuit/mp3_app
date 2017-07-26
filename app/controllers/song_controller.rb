@@ -7,6 +7,7 @@ class SongController < ApplicationController
   end
 
   def show
+    @song.update_attribute(:count_view, @song.count_view + 1)
   end
 
   private

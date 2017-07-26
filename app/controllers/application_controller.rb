@@ -23,4 +23,12 @@ class ApplicationController < ActionController::Base
   def default_url_options
     {locale: I18n.locale}
   end
+
+  def load_authors
+    @author = Author.all.collect {|author| [author.name, author.id]}
+  end
+
+  def load_categories
+    @category = Category.all.collect {|category| [category.name, category.id]}
+  end
 end

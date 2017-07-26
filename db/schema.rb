@@ -45,8 +45,10 @@ ActiveRecord::Schema.define(version: 20170725105321) do
   create_table "relationships", force: :cascade do |t|
     t.integer  "ownerable_id"
     t.string   "ownerable_type"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "targetable_id"
+    t.string   "targetable_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "singers", force: :cascade do |t|
@@ -64,8 +66,10 @@ ActiveRecord::Schema.define(version: 20170725105321) do
     t.string   "url_song"
     t.string   "picture"
     t.string   "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "count_view", default: 0
+    t.integer  "author_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|

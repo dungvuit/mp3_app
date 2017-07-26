@@ -34,6 +34,22 @@ en:
       form:
         action: "Action"
       form_confirm: "Are You Sure?"
+      categories:
+        title:
+          index: "Show Category"
+          edit: "Edit Category"
+          new: "Create Category"
+          save: "Save"
+        text_form:
+          name: "Category Name"
+      authors:
+        title:
+          index: "Show Authors"
+          edit: "Edit Author"
+          new: "Create Author"
+          save: "Save"
+        text_form:
+          name: "Author Name"
       songs:
         title:
           index: "Show Songs"

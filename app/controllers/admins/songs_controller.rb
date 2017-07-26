@@ -1,8 +1,9 @@
 class Admins::SongsController < ApplicationController
   layout "application_admin"
 
-  # before_action :logged_in_user, :verify_admin
   before_action :find_song, except: [:index, :new, :create]
+  before_action :load_authors, only: [:new, :edit]
+  before_action :load_categories, only: [:new, :edit]
 
   def index
     @songs = Song.sort_by_create_at.paginate page: params[:page]
@@ -55,6 +56,7 @@ class Admins::SongsController < ApplicationController
   end
 
   def song_params
-    params.require(:song).permit :name, :content, :picture, :url_song
+    params.require(:song).permit :name, :content, :picture, :url_song,
+      :author_id, :category_ids
   end
 end

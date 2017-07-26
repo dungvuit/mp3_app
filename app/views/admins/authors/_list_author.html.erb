@@ -1,0 +1,22 @@
+<thead>
+  <tr>
+    <th><%= t "views.admins.authors.text_form.name" %></th>
+    <th class="action"><%= t "views.admins.form.action" %></th>
+  </tr>
+</thead>
+<tbody>
+  <% @authors.each do |author| %>
+    <tr class="background-tr">
+      <td><%= author.name %></td>
+      <td>
+        <%= link_to edit_admins_author_path author do %>
+          <i class="glyphicon glyphicon-pencil"></i>
+        <% end %>
+        <%= link_to admins_author_path(author), method: :delete,
+          data: {confirm: t("views.admins.form_confirm")} do %>
+          <i class="glyphicon glyphicon-trash"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</tbody>

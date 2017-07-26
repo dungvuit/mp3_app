@@ -22,13 +22,15 @@
       </p>
       <p>
         <span class="author-name">
-          Nhạc sĩ: Kai Đinh
+          Nhạc sĩ: <%= @song.author.name %>
         </span>&nbsp;&nbsp;&nbsp;&nbsp;
         <span class="category-name">
-          Thể loại: Nhạc Trẻ
+          <% @song.categories.each do |category| %>
+            Thể loại: <%= category.name %>
+          <% end %>
         </span>
       </p>
-      <p>Lượt nghe: 515,932</p>
+      <p>Lượt nghe: <%= @song.count_view %></p>
     </div>
   </div>
 </div>

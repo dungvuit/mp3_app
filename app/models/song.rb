@@ -4,9 +4,17 @@ class Song < ApplicationRecord
   mount_uploader :picture, PictureUploader
   mount_uploader :url_song, AudioUploader
 
-  # belongs_to :author
-  has_many :singer
-  has_many :category
+  has_many :relationships, as: :targetable
+  has_many :categories, through: :relationships, source_type: Category.name,
+    source: :ownerable
+  has_many :singers, through: :relationships, source_type: Singer.name,
+    source: :ownerable
+  has_many :albums, through: :relationships, source_type: Album.name,
+    source: :ownerable
+
+  belongs_to :author
+
+  validates :author, presence: false
 
   class << self
     def to_csv options = {}
