@@ -7,7 +7,7 @@
         <% end %>
       </div>
       <div class="col-md-6">
-        <%= form_tag "#", method: :get, remote: true do %>
+        <%= form_tag "#", class: "form-search-header", method: :get, remote: true do %>
             <%= text_field_tag :search, params[:search],
               placeholder:  t("views.layouts.header.text_search"),
                 id: "search-header" %>
@@ -16,7 +16,7 @@
             <% end %>
         <% end %>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 log-in-header">
         <%= link_to "#", class: "login" do %>
           <%= t "views.layouts.header.signup" %>
         <% end %>

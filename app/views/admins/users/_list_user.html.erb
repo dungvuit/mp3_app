@@ -1,0 +1,32 @@
+<thead>
+  <tr>
+    <th><%= t "views.admins.users.text_form.name" %></th>
+    <th><%= t "views.admins.users.text_form.images" %></th>
+    <th><%= t "views.admins.users.text_form.email" %></th>
+    <th><%= t "views.admins.users.text_form.phone" %></th>
+    <th><%= t 'views.admins.users.text_form.address' %></th>
+    <th><%= t 'views.admins.users.text_form.type' %></th>
+    <th class="action"><%= t "views.admins.form.action" %></th>
+  </tr>
+</thead>
+<tbody>
+  <% @users.each do |user| %>
+    <tr class="background-tr">
+      <td><%= user.name %></td>
+      <td><%= image_tag user.image, class: "size-img-thumbnail" %></td>
+      <td><%= user.email %></td>
+      <td><%= user.phonenumber %></td>
+      <td><%= user.address %></td>
+      <td><%= user.is_admin ? "Admin" : "User" %></td>
+      <td>
+        <%= link_to edit_admins_user_path user do %>
+          <i class="glyphicon glyphicon-pencil"></i>
+        <% end %>
+        <%= link_to admins_user_path(user), method: :delete,
+          data: {confirm: t("views.admins.form_confirm")} do %>
+          <i class="glyphicon glyphicon-trash"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</tbody>

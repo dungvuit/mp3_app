@@ -27,6 +27,7 @@ gem 'ckeditor'
 gem 'toastr-rails'
 gem 'bxslider-rails'
 gem 'bootstrap-datepicker-rails'
+gem 'ransack'
 
 group :development, :test do
   gem 'byebug', platform: :mri

@@ -1,5 +1,6 @@
 class Singer < ApplicationRecord
   scope :sort_by_create_at, -> {order created_at: :desc}
+  scope :search_by_name, -> search {where "name LIKE ?", "%#{search}%"}
 
   has_many :songs, through: :singer_songs
   has_many :singer_songs, dependent: :destroy

@@ -1,5 +1,7 @@
 class Author < ApplicationRecord
   scope :sort_by_create_at, -> {order created_at: :desc}
+  scope :search_by_name, -> search {where "name LIKE ?", "%#{search}%"}
+
   has_many :songs
 
   class << self

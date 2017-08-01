@@ -36,10 +36,14 @@ body {
     background: #F0F0F0;
     padding: 15px;
     position: relative;
+    .form-search-header {
+    margin: 10px 0 0 0;
+    }
     #search-header {
       padding: 5px 10px;
       width: 350px;
-      border: 1px solid #000;
+      border: 1px solid #D6D6D7;
+      box-shadow: 10px 10px 5px #888888;
     }
     #button-search {
       background: none;
@@ -47,12 +51,15 @@ body {
       font-size: 22px;
       position: absolute;
       right: 132px;
-      top: 2px;
+      top: 12px;
       color: #a6a6a6;
     }
     #logo {
-      height: 30px;
+      height: 50px;
       width: 110px;
+    }
+    .log-in-header {
+      margin: 15px 0 0 0;
     }
     .login {
       padding:  0 5px;

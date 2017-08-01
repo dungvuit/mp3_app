@@ -1,20 +1,20 @@
-<% provide :title, t("views.admins.authors.title.index") %>
+<% provide :title, t("views.admins.users.title.index") %>
 <div class="main-content">
   <div class="container">
     <div class="info-manager">
       <div class="title-manager pull-left">
-        <h2><%= t "views.admins.authors.title.index" %></h2>
+        <h2><%= t "views.admins.users.title.index" %></h2>
       </div>
       <div class="button-manager pull-right">
         <ul>
           <li>
-            <%= link_to new_admins_author_path do %>
+            <%= link_to new_admins_user_path do %>
               <i class="glyphicon glyphicon-plus"></i>
               <%= t "button.create" %>
             <% end %>
           </li>
           <li>
-            <%= link_to admins_authors_path(format: "xls") do %>
+            <%= link_to admins_users_path(format: "xls") do %>
               <i class="glyphicon glyphicon-export"></i>
               <%= t "button.export" %>
             <% end %>
@@ -25,21 +25,26 @@
     </div>
     <div class="row wrap-search">
       <div class="col-md-6 col-md-offset-6">
-        <%= form_tag admins_authors_path, method: :get, remote: true do %>
+        <%= form_tag admins_users_path, method: :get, remote: true do %>
           <div class="form-group pull-right">
+            <%= check_box_tag :search_by_permision, "t" %>
+            <%= t "views.form.radio_admin" %>
+            <%= check_box_tag :search_by_permision, "f" %>
+            <%= t "views.form.radio_user" %>
             <%= text_field_tag :search, params[:search],
               placeholder: t("views.layouts.header.text_search") %>
-            <%= submit_tag "Seach", class: "btn btn-success" %>
+            <%= submit_tag "Search", class: "btn btn-success" %>
           </div>
         <% end %>
       </div>
     </div>
     <div class="table-responsive">
-      <%= will_paginate %>
-        <table class="table table-bordered table-hover">
-         <%= render "list_author" %>
-        </table>
-      <%= will_paginate %>
+      <table class="table table-bordered table-hover">
+        <%= render "list_user" %>
+      </table>
+      <div class="pagination">
+        <%= will_paginate %>
+      </div>
     </div>
   </div>
 </div>

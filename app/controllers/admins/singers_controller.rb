@@ -5,10 +5,15 @@ class Admins::SingersController < ApplicationController
   before_action :load_singer_genders, only: %i[new edit]
 
   def index
-    @singers = Singer.sort_by_create_at.paginate page: params[:page]
+    @singers = if params[:search].present?
+      Singer.search_by_name(params[:search])
+    else
+      Singer
+    end.sort_by_create_at.paginate page: params[:page]
     respond_to do |format|
       format.html
-      format.xls { send_data @singers.to_csv(col_sep: '\t') }
+      format.js
+      format.xls {send_data @singers.to_csv(col_sep: "\t")}
     end
   end
 
