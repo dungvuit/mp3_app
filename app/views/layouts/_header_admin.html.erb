@@ -36,14 +36,15 @@
         </li>
         <li class="<%= "actived" if current_page?(admins_songs_path) %>">
           <%= link_to t("Song"), admins_songs_path %></li>
-        <li><%= link_to "Album" %></li>
+        <li class="<%= "actived" if current_page?(admins_albums_path) %>">
+          <%= link_to t("Album"), admins_albums_path %></li>
         <li class="<%= "actived" if current_page?(admins_categories_path) %>">
           <%= link_to t("Categories"), admins_categories_path %></li>
-        <li><%= link_to "Video" %></li>
         <li class='<%= 'actived' if current_page?(admins_singers_path) %>'>
           <%= link_to t('Singer'), admins_singers_path %></li>
         <li class="<%= "actived" if current_page?(admins_authors_path) %>">
           <%= link_to t("Author"), admins_authors_path %></li>
+        <li><%= link_to "Video" %></li>
         <li><%= link_to "BXH" %></li>
       </ul>
     </div>

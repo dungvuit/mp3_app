@@ -9,4 +9,14 @@ class Singer < ApplicationRecord
 
   enum gender: { male: 0, female: 1 }
 
+  class << self
+    def to_csv options = {}
+      CSV.generate options do |csv|
+        csv << column_names
+        all.each do |singer|
+          csv << singer.attributes.values_at(*column_names)
+        end
+      end
+    end
+  end
 end

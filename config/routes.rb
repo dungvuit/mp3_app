@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :author
     resources :category
     resources :singer
+    resources :album
 
     namespace :admins do
       resources :users
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
       resources :authors
       resources :categories
       resources :singers
+      resources :albums
     end
   end
 end
