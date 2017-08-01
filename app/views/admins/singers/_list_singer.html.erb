@@ -1,0 +1,35 @@
+<thead>
+  <tr>
+    <th><%= t 'views.admins.singers.text_form.name' %></th>
+    <th><%= t 'views.admins.singers.text_form.images' %></th>
+    <th><%= t 'views.admins.singers.text_form.dob' %></th>
+    <th><%= t 'views.admins.singers.text_form.gender' %></th>
+    <th><%= t 'views.admins.singers.text_form.address' %></th>
+    <th class='action'><%= t 'views.admins.form.action' %></th>
+  </tr>
+</thead>
+<tbody>
+  <% @singers.each do |singer| %>
+    <tr class='background-tr'>
+      <td>
+        <%= link_to "#", "data-toggle" => "modal", "data-target" => "#singer_modal_#{singer.id}" do %>
+          <%= image_tag singer.picture, class: "size-img-thumbnail" %>
+        <% end %>
+      </td>
+      <td><%= singer.name %></td>
+      <td><%= singer.dob.strftime(t 'time.formats.date') %></td>
+      <td><%= singer.gender %></td>
+      <td><%= singer.address %></td>
+      <td>
+        <%= link_to edit_admins_singer_path singer do %>
+          <i class='glyphicon glyphicon-pencil'></i>
+        <% end %>
+        <%= link_to admins_singer_path(singer), method: :delete,
+          data: {confirm: t('views.admins.form_confirm')} do %>
+          <i class='glyphicon glyphicon-trash'></i>
+        <% end %>
+      </td>
+    </tr>
+    <%= render 'layouts/modal_singer', singer: singer %>
+  <% end %>
+</tbody>

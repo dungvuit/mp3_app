@@ -1,7 +1,7 @@
 class Admins::AuthorsController < ApplicationController
   layout "application_admin"
 
-  before_action :find_author, except: [:index, :new, :create]
+  before_action :find_author, except: %i[index new create]
 
   def index
     @authors = Author.sort_by_create_at.paginate page: params[:page]
@@ -25,8 +25,7 @@ class Admins::AuthorsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @author.update_attributes author_params

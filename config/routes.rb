@@ -11,12 +11,14 @@ Rails.application.routes.draw do
     resources :song
     resources :author
     resources :category
+    resources :singer
 
     namespace :admins do
       resources :users
       resources :songs
       resources :authors
       resources :categories
+      resources :singers
     end
   end
 end

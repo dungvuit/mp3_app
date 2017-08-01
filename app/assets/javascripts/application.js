@@ -18,6 +18,7 @@
 //= require ckeditor/init
 //= require toastr
 //= require bxslider
+//= require bootstrap-datepicker
 
 jQuery(document).ready(function($){
   document.addEventListener("turbolinks:load", function() {

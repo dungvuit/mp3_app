@@ -1,7 +1,7 @@
 class Admins::CategoriesController < ApplicationController
   layout "application_admin"
 
-  before_action :find_category, except: [:index, :new, :create]
+  before_action :find_category, except: %i[index new create]
 
   def index
     @categories = if params[:search].present?
@@ -30,8 +30,7 @@ class Admins::CategoriesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @category.update_attributes category_params

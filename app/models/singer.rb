@@ -1,7 +1,12 @@
 class Singer < ApplicationRecord
+  scope :sort_by_create_at, -> {order created_at: :desc}
+
+  has_many :songs, through: :singer_songs
+  has_many :singer_songs, dependent: :destroy
+
   has_many :album
-  has_many :relationships, as: :ownerable
-  has_many :songs, through: :active_relationships, source_type: Song.name,
-    source: :targetable
   mount_uploader :picture, PictureUploader
+
+  enum gender: { male: 0, female: 1 }
+
 end
