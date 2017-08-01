@@ -34,6 +34,8 @@
             <%= t "views.menu.home" %>
           <% end %>
         </li>
+        <li class="<%= "actived" if current_page?(admins_users_path) %>">
+          <%= link_to t("User"), admins_users_path %></li>
         <li class="<%= "actived" if current_page?(admins_songs_path) %>">
           <%= link_to t("Song"), admins_songs_path %></li>
         <li class="<%= "actived" if current_page?(admins_albums_path) %>">

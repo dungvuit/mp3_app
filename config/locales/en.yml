@@ -37,6 +37,19 @@ en:
       form:
         action: "Action"
       form_confirm: "Are You Sure?"
+      users:
+        title:
+          index: "Show User"
+          edit: "Edit User"
+          new: "Create User"
+          save: "Save"
+        text_form:
+          name: "User Name"
+          images: "Avatar"
+          email: "Email"
+          phone: "Phone number"
+          address: "Address"
+          type: "Type Account"
       singers:
         title:
           index: "Show Singer"

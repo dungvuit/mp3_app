@@ -1,0 +1,87 @@
+<%= form_for [:admins, @user] do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="form-group row">
+        <div class="col-md-4">
+          <%= f.label :name, t("views.admins.users.text_form.name"),
+            class: "col-form-label" %>
+        </div>
+        <div class="col-md-6">
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-md-4">
+          <%= f.label :image, t("views.admins.users.text_form.images"),
+            class: "col-form-label" %>
+        </div>
+        <div class="col-md-6">
+        <%= f.file_field :image %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-md-4">
+          <%= f.label :email, t("views.admins.users.text_form.email"),
+            class: "col-form-label" %>
+        </div>
+        <div class="col-md-6">
+          <%= f.email_field :email, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-md-4">
+          <%= f.label :password, class: "col-form-label" %>
+        </div>
+        <div class="col-md-6">
+          <%= f.password_field :password, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-md-4">
+          <%= f.label :password_confirmation,
+            t("views.form.confirmation"), class: "col-form-label" %>
+        </div>
+        <div class="col-md-6">
+          <%= f.password_field :password_confirmation,
+            class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-md-4">
+          <%= f.label :phonenumber, t("views.admins.users.text_form.phone"),
+            class: "col-form-label" %>
+        </div>
+        <div class="col-md-6">
+          <%= f.number_field :phonenumber, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-md-4">
+          <%= f.label :address, t("views.admins.users.text_form.address"),
+            class: "col-form-label" %>
+        </div>
+        <div class="col-md-6">
+          <%= f.text_field :address, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-md-4">
+          <%= f.label :is_admin, t("views.admins.users.text_form.type"),
+            class: "col-form-label" %>
+        </div>
+        <div class="col-md-6">
+          <%= f.radio_button :is_admin, "true" %>
+            <%= t "views.form.admin" %>
+          <%= f.radio_button :is_admin, "false" %>
+            <%= t "views.form.user" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-6 col-md-offset-4">
+          <%= f.submit yield(:button_text), class: "btn btn-success" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
