@@ -1,0 +1,24 @@
+<thead>
+  <tr>
+    <th><%= t "views.admins.albums.text_form.name" %></th>
+    <th><%= t "views.admins.singers.text_form.name" %></th>
+    <th class="action"><%= t "views.admins.form.action" %></th>
+  </tr>
+</thead>
+<tbody>
+  <% @albums.each do |album| %>
+    <tr class="background-tr">
+      <td><%= album.name %></td>
+      <td><%= album.singer.name %></td>
+      <td>
+        <%= link_to edit_admins_album_path album do %>
+          <i class="glyphicon glyphicon-pencil"></i>
+        <% end %>
+        <%= link_to admins_album_path(album), method: :delete,
+          data: {confirm: t("views.admins.form_confirm")} do %>
+          <i class="glyphicon glyphicon-trash"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</tbody>

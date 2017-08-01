@@ -57,6 +57,14 @@ en:
           save: "Save"
         text_form:
           name: "Category Name"
+      albums:
+        title:
+          index: "Show Album"
+          edit: "Edit Album"
+          new: "Create Album"
+          save: "Save"
+        text_form:
+          name: "Album Name"
       authors:
         title:
           index: "Show Authors"
