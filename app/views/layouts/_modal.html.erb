@@ -17,9 +17,19 @@
               <%= song.id %></p>
             <p><%= t "views.layouts.modal-song.name" %>:&nbsp;
               <%= song.name %></p>
-            <p>
-              <audio src="<%= song.url_song %>" type="audio/mpeg" controls></audio>
-            </p>
+              <p><%= t "views.admins.categories.text_form.name" %>:&nbsp;
+                <% song.categories.each do |category| %>
+                  <%= category.name %>
+                <% end %>
+              </p>
+              <p><%= t "views.admins.singers.text_form.name" %>:&nbsp;
+                <% song.singers.each do |singer| %>
+                  <%= singer.name %>
+                <% end %>
+              </p>
+              <p><%= t "views.admins.authors.text_form.name" %>:&nbsp;
+                <%= song.author.name %>
+              </p>
          </div>
         </div>
       </div>

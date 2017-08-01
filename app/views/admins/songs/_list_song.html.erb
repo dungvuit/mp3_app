@@ -2,9 +2,9 @@
   <tr>
     <th><%= t "views.admins.songs.text_form.images" %></th>
     <th><%= t "views.admins.songs.text_form.name" %></th>
-    <th><%= t "views.admins.songs.text_form.url_song" %></th>
     <th><%= t "views.admins.authors.text_form.name" %></th>
     <th><%= t "views.admins.categories.text_form.name" %></th>
+    <th><%= t 'views.admins.singers.text_form.name' %></th>
     <th class="action"><%= t "views.admins.form.action" %></th>
   </tr>
 </thead>
@@ -17,14 +17,16 @@
         <% end %>
       </td>
       <td><%= song.name %></td>
-      <td>
-        <audio src="<%= song.url_song %>" type="audio/mpeg" controls></audio>
-      </td>
       <td><%= song.author.name %></td>
       <td>
       <% song.categories.each do |category| %>
         <%= category.name %>
       <% end %>
+      </td>
+      <td>
+        <% song.singers.each do |singer| %>
+          <%= singer.name %>
+        <% end %>
       </td>
       <td>
         <%= link_to edit_admins_song_path song do %>

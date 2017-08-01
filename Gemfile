@@ -26,6 +26,7 @@ gem 'carrierwave-audio'
 gem 'ckeditor'
 gem 'toastr-rails'
 gem 'bxslider-rails'
+gem 'bootstrap-datepicker-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri

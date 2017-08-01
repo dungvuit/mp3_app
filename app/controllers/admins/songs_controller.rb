@@ -1,9 +1,8 @@
 class Admins::SongsController < ApplicationController
   layout "application_admin"
 
-  before_action :find_song, except: [:index, :new, :create]
-  before_action :load_authors, only: [:new, :edit]
-  before_action :load_categories, only: [:new, :edit]
+  before_action :find_song, except: %i[index new create]
+  before_action :load_data, only: %i[index new edit]
 
   def index
     @songs = Song.sort_by_create_at.paginate page: params[:page]
@@ -23,18 +22,19 @@ class Admins::SongsController < ApplicationController
       flash[:success] = "Create Song Successfully!"
       redirect_to admins_songs_path
     else
+      load_data
       render :new
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @song.update_attributes song_params
       redirect_to admins_songs_path
       flash[:success] = "Song Edit Successfully!"
     else
+      load_data
       render :edit
     end
   end
@@ -57,6 +57,10 @@ class Admins::SongsController < ApplicationController
 
   def song_params
     params.require(:song).permit :name, :content, :picture, :url_song,
-      :author_id, :category_ids
+      :author_id, :category_ids, :singer_ids
+  end
+
+  def load_data
+    @supports = Supports::Relationship.new
   end
 end

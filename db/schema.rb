@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170725105321) do
+ActiveRecord::Schema.define(version: 20170801012006) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "name"
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 20170725105321) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "category_songs", force: :cascade do |t|
+    t.integer  "song_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_category_songs_on_category_id"
+    t.index ["song_id"], name: "index_category_songs_on_song_id"
+  end
+
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
     t.string   "data_content_type"
@@ -42,19 +51,19 @@ ActiveRecord::Schema.define(version: 20170725105321) do
     t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
 
-  create_table "relationships", force: :cascade do |t|
-    t.integer  "ownerable_id"
-    t.string   "ownerable_type"
-    t.integer  "targetable_id"
-    t.string   "targetable_type"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+  create_table "singer_songs", force: :cascade do |t|
+    t.integer  "song_id"
+    t.integer  "singer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["singer_id"], name: "index_singer_songs_on_singer_id"
+    t.index ["song_id"], name: "index_singer_songs_on_song_id"
   end
 
   create_table "singers", force: :cascade do |t|
     t.string   "name"
     t.string   "picture"
-    t.integer  "dob"
+    t.date     "dob"
     t.integer  "gender",     default: 0, null: false
     t.string   "address"
     t.datetime "created_at",             null: false

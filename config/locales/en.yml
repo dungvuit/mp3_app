@@ -20,6 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  time:
+    formats:
+      date: "%d/%m/%Y"
   error_form:
     errors_contain: "The form contains"
     error: "error"
@@ -28,12 +31,24 @@ en:
     export: "Export"
   helpers:
     application_helper:
-      full_title: "Welcome to RikkeiSoft Mp3 App"
+      full_title: "Welcome to Mp3 App"
   views:
     admins:
       form:
         action: "Action"
       form_confirm: "Are You Sure?"
+      singers:
+        title:
+          index: "Show Singer"
+          edit: "Edit Singer"
+          new: "Create Singer"
+          save: "Save"
+        text_form:
+          name: "Singer Name"
+          images: "Avatar"
+          dob: "Date of Birth"
+          gender: "Gender"
+          address: "Address"
       categories:
         title:
           index: "Show Category"
@@ -72,8 +87,16 @@ en:
           url_song: "Play Song"
           content: "Content Song"
           close: "Close"
+      modal-singer:
+          id: "ID"
+          images: "Avatar"
+          name: "Singer Name"
+          dob: "Date of Birth"
+          gender: "Gender"
+          address: "Address"
+          close: "Close"
       header:
-        logo: "Rikkei Mp3"
+        logo: "Mp3"
         text_search: "Input data search"
         home: "Home"
         upload: "Upload mp3"

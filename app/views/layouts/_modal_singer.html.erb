@@ -1,0 +1,36 @@
+<div class='modal fade' id='singer_modal_<%= singer.id %>' role='dialog'>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <%= button_tag class: 'close', 'data-dismiss' => 'modal' do %>
+          &times;
+        <% end %>
+        <h4 class='modal-title'><%= t 'views.modal.title_details' %></h4>
+      </div>
+      <div class='row'>
+        <div class='col-md-5'>
+          <%= image_tag singer.picture, class: 'size-img-modal' %>
+        </div>
+        <div class='col-md-7'>
+          <div class='info-song'>
+            <p><%= t 'views.layouts.modal-singer.id' %>:&nbsp;
+              <%= singer.id %></p>
+            <p><%= t 'views.layouts.modal-singer.name' %>:&nbsp;
+              <%= singer.name %></p>
+            <p><%= t 'views.layouts.modal-singer.dob' %>:&nbsp;
+              <%= singer.dob %></p>
+            <p><%= t 'views.layouts.modal-singer.gender' %>:&nbsp;
+              <%= singer.gender %></p>
+            <p><%= t 'views.layouts.modal-singer.address' %>:&nbsp;
+              <%= singer.address %></p>
+         </div>
+        </div>
+      </div>
+      <div class='modal-footer'>
+        <%= button_tag class: 'btn btn-default', 'data-dismiss' => 'modal' do %>
+          <%= t 'views.layouts.modal-song.close' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

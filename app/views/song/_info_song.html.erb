@@ -9,14 +9,10 @@
           <%= @song.name %> -
         </span>
         <span class="singer-name">
-          <%= link_to "#" do %>
-            Khắc Hưng,
-          <% end %>
-          <%= link_to "#" do %>
-            ERIK,
-          <% end %>
-          <%= link_to "#" do %>
-            MIN
+          <% @song.singers.each do |singer| %>
+            <%= link_to "#" do %>
+              <%= singer.name %>
+            <% end %>
           <% end %>
         </span>
       </p>
@@ -36,6 +32,7 @@
 </div>
 <br><br>
 <p>
-  <audio src="<%= @song.url_song %>" type="audio/mpeg" controls></audio>
+  <audio src="<%= @song.url_song %>" type="audio/mpeg" controls loop>
+  </audio>
 </p>
 <%= render 'song/content_song' %>
