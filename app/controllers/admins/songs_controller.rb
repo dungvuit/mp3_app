@@ -5,9 +5,16 @@ class Admins::SongsController < ApplicationController
   before_action :load_data, only: %i[index new edit]
 
   def index
-    @songs = Song.sort_by_create_at.paginate page: params[:page]
+    @songs = if params[:song_name].present? || params[:singer_name].present? ||
+      params[:category_name].present? || params[:author_name].present?
+      Song.search_song params[:song_name], params[:singer_name],
+        params[:category_name], params[:author_name]
+    else
+      Song
+    end.sort_by_create_at.paginate page: params[:page]
     respond_to do |format|
       format.html
+      format.js
       format.xls {send_data @songs.to_csv(col_sep: "\t")}
     end
   end
@@ -22,7 +29,6 @@ class Admins::SongsController < ApplicationController
       flash[:success] = "Create Song Successfully!"
       redirect_to admins_songs_path
     else
-      load_data
       render :new
     end
   end
@@ -34,7 +40,6 @@ class Admins::SongsController < ApplicationController
       redirect_to admins_songs_path
       flash[:success] = "Song Edit Successfully!"
     else
-      load_data
       render :edit
     end
   end
