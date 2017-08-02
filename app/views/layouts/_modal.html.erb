@@ -28,7 +28,7 @@
                 <% end %>
               </p>
               <p><%= t "views.admins.authors.text_form.name" %>:&nbsp;
-                <%= song.author.name %>
+                <%= song.author.name if song.author_id.present? %>
               </p>
          </div>
         </div>

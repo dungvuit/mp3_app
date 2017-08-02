@@ -23,6 +23,23 @@
       </div>
       <div class="clearfix"></div>
     </div>
+    <div class="row wrap-search">
+      <div class="col-md-12">
+        <%= form_tag admins_songs_path, method: :get, remote: true do %>
+          <div class="form-group pull-right">
+            <%= text_field_tag :song_name, params[:search],
+              placeholder: "Song name" %>
+            <%= text_field_tag :author_name, params[:search],
+              placeholder: "Author name" %>
+            <%= text_field_tag :category_name, params[:search],
+              placeholder: "Category name" %>
+            <%= text_field_tag :singer_name, params[:search],
+              placeholder: "Singer name" %>
+            <%= submit_tag "Seach", class: "btn btn-success" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
     <div class="table-responsive">
       <%= will_paginate %>
         <table class="table table-bordered table-hover">
