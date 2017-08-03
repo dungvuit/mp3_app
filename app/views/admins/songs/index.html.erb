@@ -35,7 +35,9 @@
               placeholder: "Category name" %>
             <%= text_field_tag :singer_name, params[:search],
               placeholder: "Singer name" %>
-            <%= submit_tag "Seach", class: "btn btn-success" %>
+            <%= button_tag "Seach", class: "custom-btn" do %>
+              <span class="glyphicon glyphicon-search"></span>
+            <% end %>
           </div>
         <% end %>
       </div>
