@@ -17,17 +17,40 @@
         <% end %>
       </div>
       <div class="col-md-3 log-in-header">
-        <%= link_to "#", class: "login" do %>
-          <%= t "views.layouts.header.signup" %>
-        <% end %>
-        <%= link_to "#", class: "login" do %>
-          <%= t "views.layouts.header.login" %>
-        <% end %>
+      <% if user_signed_in? %>
+        <div class="account pull-left">
+          <div class="username">
+            <%= link_to "#" do %>
+              <span>
+                <%= current_user.name %>
+                <i class="glyphicon glyphicon-triangle-bottom"></i>
+              </span>
+            <% end %>
+          </div>
+          <ul>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="glyphicon glyphicon-log-out"></i>
+                <%= t "views.menu.logout" %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      <% else %>
+        <div class="login">
+          <%= link_to "#", "data-toggle" => "modal", "data-target" => "#singin_modal" do %>
+            <i class="fa fa-user"></i>
+            <%= t "views.layouts.header.login" %>
+          <% end %>
+        </div>
+      <% end %>
+      <div class="language-header pull-right">
         <% ["vi", "en"].each do |lang| %>
           <%= link_to locale: lang do %>
             <%= image_tag "#{lang}.png", class: "language" %>
           <% end %>
         <% end %>
+      </div>
       </div>
     </div>
   </div>
@@ -70,4 +93,5 @@
       </div>
     </div>
   </div>
+  <%= render 'layouts/modal_signin' %>
 </nav>

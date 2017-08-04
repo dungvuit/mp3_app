@@ -1,5 +1,8 @@
 class User < ApplicationRecord
-  attr_accessor :remember_token
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
   before_save :downcase_email
 
   scope :sort_by_create_at, -> {order created_at: :desc}
@@ -7,8 +10,6 @@ class User < ApplicationRecord
   scope :search_by_permision, -> search_permision{where is_admin: search_permision}
 
   mount_uploader :image, PictureUploader
-
-  has_secure_password
 
   private
 
