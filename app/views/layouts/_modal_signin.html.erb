@@ -1,0 +1,44 @@
+<div class='modal fade' id='singin_modal' role='dialog'>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <%= button_tag class: 'close', 'data-dismiss' => 'modal' do %>
+          &times;
+        <% end %>
+        <h4 class='modal-title'>Form Login</h4>
+      </div>
+
+      <div class="modal-signin">
+
+        <ul class="nav nav-tabs row">
+          <li class="active col-md-6">
+            <%= link_to "#menu1", "data-toggle": "tab" do %>
+              SIGN IN
+            <% end %>
+          </li>
+          <li class="col-md-6">
+            <%= link_to "#menu2", "data-toggle": "tab" do %>
+              SIGN UP
+            <% end %>
+          </li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="menu1" class="tab-pane fade in active">
+              <%= render 'devise/sessions/new' %>
+            </div>
+            <div id="menu2" class="tab-pane fade">
+              <%= render 'devise/registrations/new' %>
+            </div>
+        </div>
+
+      </div>
+
+      <div class='modal-footer'>
+        <%= button_tag class: 'btn btn-default', 'data-dismiss' => 'modal' do %>
+          <%= t 'views.layouts.modal-song.close' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

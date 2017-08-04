@@ -29,6 +29,30 @@ body {
   .container {
     width: 970px;
     padding: 0;
+    .forget-password {
+      a {
+        font-size: 12px;
+      }
+    }
+    .form-wrap {
+      background: #fff;
+      padding: 30px;
+      margin: 0 0 20px 0;
+      box-shadow: 0 5px 12px -5px rgba(0, 0, 0, 0.5);
+      -webkit-box-shadow: 0 5px 12px -5px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: 0 5px 12px -5px rgba(0, 0, 0, 0.5);
+    }
+    .form-wrap-forget-pass {
+      background: #fff;
+      padding: 30px;
+      width: 70%;
+      margin: 50px 0 174px;
+      position: relative;
+      left: 15%;
+      box-shadow: 0 5px 12px -5px rgba(0, 0, 0, 0.5);
+      -webkit-box-shadow: 0 5px 12px -5px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: 0 5px 12px -5px rgba(0, 0, 0, 0.5);
+    }
   }
 
   /* header */
@@ -61,13 +85,80 @@ body {
       width: 110px;
     }
     .log-in-header {
-      margin: 20px 0 0 0;
+      position: relative;
+      .account {
+        width: 120px;
+        position: absolute;
+        background: none;
+        font-size: 13px;
+        top: 5px;
+        left: 100px;
+        &:hover {
+          .username {
+            background: #337ab7;
+            transition: 0.3s;
+            a {
+              color: #fff;
+              transition: 0.3s;
+            }
+          }
+          ul {
+            background: #337ab7;
+            display: block;
+            transition: 0.3s;
+          }
+        }
+        ul {
+          display: none;
+          margin: 0;
+          padding: 0;
+          position: absolute;
+          right: 0;
+          top: 38px;
+          width: 100%;
+          li {
+            list-style: none;
+            a {
+              color: #fff;
+              text-decoration: none;
+              display: block;
+              padding: 8px 10px;
+              &:hover {
+                background: #396eaf;
+                transition: 0.3s;
+              }
+            }
+          }
+        }
+        .username {
+          padding: 10px;
+          a {
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+          }
+        }
+      }
+      .language-header {
+        position: absolute;
+        top: 15px;
+      }
     }
     .login {
-      padding:  0 5px;
-      color: #000;
+      position: absolute;
+      left: 80px;
+      top: 8px;
+      padding: 6px 10px;
+      background: #337ab7;
+      border-radius: 5px;
       &:hover {
-        color: #3399ff;
+        background: #396eaf;
+        transition: 0.3s;
+      }
+      a {
+        padding:  0 5px;
+        color: #fff;
+        font-weight: bold;
       }
     }
     .language {
@@ -80,6 +171,28 @@ body {
         color: #fff;
         text-decoration: none;
       }
+    }
+  }
+  .modal-signin {
+    ul {
+      li {
+        text-align: center;
+        a {
+          color: #000 !important;
+          &:hover {
+            color: #396eaf !important;
+          }
+          &:focus {
+            color: #396eaf !important;
+          }
+        }
+      }
+    }
+    .tab-content {
+      padding: 20px;
+      max-width: auto;
+      max-height: auto;
+      text-align: center;
     }
   }
 
