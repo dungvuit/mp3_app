@@ -8,8 +8,8 @@
     <%= javascript_include_tag "application",
       "data-turbolinks-track": "reload" %>
   </head>
-  <body>
-    <div id="admin">
+  <body id="admin">
+    <div class="admins">
       <%= render "layouts/header_admin" %>
       <% unless flash.empty? %>
         <script type="text/javascript">

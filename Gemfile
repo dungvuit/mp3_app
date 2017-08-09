@@ -20,7 +20,6 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 gem 'jwplayer-rails'
-gem 'will_paginate'
 gem 'bcrypt'
 gem 'carrierwave-audio'
 gem 'ckeditor'
@@ -29,6 +28,7 @@ gem 'bxslider-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'ransack'
 gem 'devise'
+gem "faker"
 
 group :development, :test do
   gem 'byebug', platform: :mri

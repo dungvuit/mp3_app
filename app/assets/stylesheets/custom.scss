@@ -2,8 +2,8 @@
 @import "bootstrap";
 @import "font-awesome";
 
-body {
-  background: #F2F2F2;
+#user {
+  background: #F2F2F2 ;
   ul {
     li {
       list-style: none;
@@ -11,7 +11,7 @@ body {
   }
 }
 
-#user {
+.users {
   .bx-wrapper {
     z-index: 999;
   }
@@ -116,6 +116,7 @@ body {
           right: 0;
           top: 38px;
           width: 100%;
+          z-index: 1;
           li {
             list-style: none;
             a {

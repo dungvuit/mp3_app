@@ -1,6 +1,7 @@
 class Admins::AlbumsController < ApplicationController
   layout "application_admin"
 
+  before_action :check_user_logged, :verify_admin
   before_action :find_album, except: %i[index new create]
   before_action :load_data, only: %i[index new edit]
 
@@ -9,7 +10,7 @@ class Admins::AlbumsController < ApplicationController
       Album.search_by_name(params[:search])
     else
       Album
-    end.sort_by_create_at.paginate page: params[:page]
+    end.sort_by_create_at
     respond_to do |format|
       format.html
       format.js

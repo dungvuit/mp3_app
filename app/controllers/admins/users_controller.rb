@@ -1,6 +1,7 @@
 class Admins::UsersController < ApplicationController
   layout "application_admin"
 
+  before_action :check_user_logged, :verify_admin
   before_action :find_user, except: [:index, :new, :create]
 
   def index
@@ -13,7 +14,7 @@ class Admins::UsersController < ApplicationController
       User.search_by_permision(params[:search_by_permision])
     else
       User
-    end.sort_by_create_at.paginate page: params[:page]
+    end.sort_by_create_at
     respond_to do |format|
       format.html
       format.js
@@ -28,7 +29,7 @@ class Admins::UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      flash[:success] = t "Create User Successfully!"
+      flash[:success] = "Create User Successfully!"
       redirect_to admins_users_path
     else
       render :new
@@ -44,7 +45,7 @@ class Admins::UsersController < ApplicationController
   def update
     if @user.update_attributes user_params
       redirect_to admins_users_path
-      flash[:success] = t "User Edit Successfully!"
+      flash[:success] = "User Edit Successfully!"
     else
       render :edit
     end
@@ -52,7 +53,7 @@ class Admins::UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    flash[:success] = t "User Delete Successfully!"
+    flash[:success] = "User Delete Successfully!"
     redirect_to admins_users_path
   end
 
@@ -60,7 +61,7 @@ class Admins::UsersController < ApplicationController
   def find_user
     @user = User.find_by id: params[:id]
     unless @user
-      flash[:danger] = t "User not exits!"
+      flash[:danger] = "User not exits!"
       redirect_to admins_users_path
     end
   end

@@ -1,5 +1,4 @@
 <% provide :title, t("views.admins.categories.title.edit") %>
-<% provide :button_text, t("views.admins.categories.title.save") %>
 <div class="main-content">
   <div class="container">
     <div class="info-manager">
@@ -8,12 +7,6 @@
       </div>
       <div class="button-manager pull-right">
         <ul>
-          <li>
-            <%= link_to new_admins_category_path do %>
-              <i class="glyphicon glyphicon-plus"></i>
-              <%= t "button.create" %>
-            <% end %>
-          </li>
           <li>
             <%= link_to admins_categories_path(format: "xls") do %>
               <i class="glyphicon glyphicon-export"></i>
@@ -25,7 +18,7 @@
       <div class="clearfix"></div>
     </div>
     <div class="form-wrap">
-      <%= render "form" %>
+      <%= render "form", button_to: t("views.admins.categories.title.save") %>
     </div>
   </div>
 </div>

@@ -16,7 +16,12 @@ class Song < ApplicationRecord
   has_many :albums, through: :album_songs
   has_many :album_songs, dependent: :destroy
 
+  # User_Song
+  has_many :users, through: :user_songs
+  has_many :user_songs, dependent: :destroy
+
   belongs_to :author
+  has_many :likes
 
   scope :search_song, -> song_name, singer_name, category_name, author_name do
     where("songs.name LIKE ?","%#{song_name}%")

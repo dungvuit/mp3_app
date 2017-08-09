@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170803065417) do
+ActiveRecord::Schema.define(version: 20170808042117) do
 
   create_table "album_songs", force: :cascade do |t|
     t.integer  "song_id"
@@ -61,6 +61,16 @@ ActiveRecord::Schema.define(version: 20170803065417) do
     t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "song_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["song_id"], name: "index_likes_on_song_id"
+    t.index ["user_id", "song_id"], name: "index_likes_on_user_id_and_song_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "singer_songs", force: :cascade do |t|
     t.integer  "song_id"
     t.integer  "singer_id"
@@ -91,6 +101,15 @@ ActiveRecord::Schema.define(version: 20170803065417) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "user_songs", force: :cascade do |t|
+    t.integer  "song_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["song_id"], name: "index_user_songs_on_song_id"
+    t.index ["user_id"], name: "index_user_songs_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "image"
     t.string   "name"
@@ -109,7 +128,6 @@ ActiveRecord::Schema.define(version: 20170803065417) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "confirmation_token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -1,6 +1,6 @@
 <div class="content-song">
   <p><b>Lời bài hát: <%= @song.name %></b></p>
-  <%= @song.content.html_safe %>
+  <%= @song.content.html_safe if @song.content.present? %>
 </div>
 <br>
 <button id="hide" style="display: none;">« Rút gọn</button>
