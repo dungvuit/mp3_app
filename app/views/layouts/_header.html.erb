@@ -18,24 +18,57 @@
       </div>
       <div class="col-md-3 log-in-header">
       <% if user_signed_in? %>
-        <div class="account pull-left">
-          <div class="username">
-            <%= link_to "#" do %>
-              <span>
-                <%= current_user.name %>
-                <i class="glyphicon glyphicon-triangle-bottom"></i>
-              </span>
-            <% end %>
-          </div>
-          <ul>
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="glyphicon glyphicon-log-out"></i>
-                <%= t "views.menu.logout" %>
+        <% if current_user.is_admin? %>
+          <div class="account pull-left">
+            <div class="username">
+              <%= link_to "#" do %>
+                <span>
+                  <%= current_user.name %>
+                  <i class="glyphicon glyphicon-triangle-bottom"></i>
+                </span>
               <% end %>
-            </li>
-          </ul>
-        </div>
+            </div>
+            <ul>
+              <li>
+                <%= link_to admins_users_path do %>
+                  <i class="fa fa-user"></i>
+                  Admin Page
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  <i class="glyphicon glyphicon-log-out"></i>
+                  <%= t "views.menu.logout" %>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+        <% else %>
+          <div class="account pull-left">
+            <div class="username">
+              <%= link_to "#" do %>
+                <span>
+                  <%= current_user.name %>
+                  <i class="glyphicon glyphicon-triangle-bottom"></i>
+                </span>
+              <% end %>
+            </div>
+            <ul>
+              <li>
+                <%= link_to edit_user_registration_path do %>
+                  <i class="fa fa-wpforms"></i>
+                  Update Profile
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  <i class="glyphicon glyphicon-log-out"></i>
+                  <%= t "views.menu.logout" %>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+        <% end %>
       <% else %>
         <div class="login">
           <%= link_to "#", "data-toggle" => "modal", "data-target" => "#singin_modal" do %>

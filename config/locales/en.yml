@@ -20,6 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  application:
+    please_login: "You need to login before continuing."
   time:
     formats:
       date: "%d/%m/%Y"

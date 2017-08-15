@@ -1,6 +1,7 @@
 class Admins::SingersController < ApplicationController
   layout 'application_admin'
 
+  before_action :check_user_logged, :verify_admin
   before_action :find_singer, except: %i[index new create]
   before_action :load_singer_genders, only: %i[new edit]
 
@@ -9,7 +10,7 @@ class Admins::SingersController < ApplicationController
       Singer.search_by_name(params[:search])
     else
       Singer
-    end.sort_by_create_at.paginate page: params[:page]
+    end.sort_by_create_at
     respond_to do |format|
       format.html
       format.js

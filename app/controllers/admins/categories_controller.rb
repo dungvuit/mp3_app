@@ -1,23 +1,22 @@
 class Admins::CategoriesController < ApplicationController
   layout "application_admin"
 
+  before_action :check_user_logged, :verify_admin
   before_action :find_category, except: %i[index new create]
+  before_action :load_data, only: %i[index new edit]
 
   def index
     @categories = if params[:search].present?
       Category.search_by_name(params[:search])
     else
       Category
-    end.sort_by_create_at.paginate page: params[:page]
+    end.sort_by_create_at
+    @category = Category.new
     respond_to do |format|
       format.html
       format.js
       format.xls {send_data @categories.to_csv(col_sep: "\t")}
     end
-  end
-
-  def new
-    @category = Category.new
   end
 
   def create
@@ -61,5 +60,9 @@ class Admins::CategoriesController < ApplicationController
 
   def category_params
     params.require(:category).permit :name
+  end
+
+  def load_data
+    @supports = Supports::Relationship.new
   end
 end

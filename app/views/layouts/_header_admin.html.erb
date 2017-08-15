@@ -7,14 +7,14 @@
       <div class="username">
         <%= link_to "#" do %>
           <span>
-            <%= t "views.menu.admin" %>
+            <%= current_user.name %>
             <i class="glyphicon glyphicon-triangle-bottom"></i>
           </span>
         <% end %>
       </div>
       <ul>
         <li>
-          <%= link_to "#" do %>
+          <%= link_to destroy_user_session_path, method: :delete do %>
             <i class="glyphicon glyphicon-log-out"></i>
             <%= t "views.menu.logout" %>
           <% end %>
@@ -30,24 +30,46 @@
       <ul>
         <li>
           <%= link_to root_path do %>
-            <i class="glyphicon glyphicon-home"></i>
+            <i class="fa fa-home"></i>
             <%= t "views.menu.home" %>
           <% end %>
         </li>
         <li class="<%= "actived" if current_page?(admins_users_path) %>">
-          <%= link_to t("User"), admins_users_path %></li>
+          <%= link_to admins_users_path do %>
+            <i class="fa fa-user"></i>
+            User
+          <% end %>
+        </li>
         <li class="<%= "actived" if current_page?(admins_songs_path) %>">
-          <%= link_to t("Song"), admins_songs_path %></li>
+          <%= link_to admins_songs_path do %>
+            <i class="fa fa-music"></i>
+            Song
+          <% end %>
+        </li>
         <li class="<%= "actived" if current_page?(admins_albums_path) %>">
-          <%= link_to t("Album"), admins_albums_path %></li>
+          <%= link_to admins_albums_path do %>
+            <i class="fa fa-list"></i>
+            Album
+          <% end %>
+        </li>
         <li class="<%= "actived" if current_page?(admins_categories_path) %>">
-          <%= link_to t("Categories"), admins_categories_path %></li>
-        <li class='<%= 'actived' if current_page?(admins_singers_path) %>'>
-          <%= link_to t('Singer'), admins_singers_path %></li>
+          <%= link_to admins_categories_path do %>
+            <i class="fa fa-outdent"></i>
+            Categories
+          <% end %>
+        </li>
+        <li class="<%= "actived" if current_page?(admins_singers_path) %>">
+          <%= link_to admins_singers_path do %>
+            <i class="fa fa-blind"></i>
+            Singer
+          <% end %>
+        </li>
         <li class="<%= "actived" if current_page?(admins_authors_path) %>">
-          <%= link_to t("Author"), admins_authors_path %></li>
-        <li><%= link_to "Video" %></li>
-        <li><%= link_to "BXH" %></li>
+          <%= link_to admins_authors_path do %>
+            <i class="fa fa-user-circle"></i>
+            Author
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>

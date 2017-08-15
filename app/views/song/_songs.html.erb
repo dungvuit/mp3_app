@@ -10,10 +10,9 @@
         <% end %>
         <span class="author-song">
           <%= link_to "#" do %>
-             MIN,
-          <% end %>
-          <%= link_to "#" do %>
-            Mr.A
+             <% song.singers.each do |singer| %>
+                <%= singer.name %>
+             <% end %>
           <% end %>
         </span>
       </div>

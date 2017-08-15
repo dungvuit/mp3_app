@@ -1,6 +1,7 @@
 class Admins::SongsController < ApplicationController
   layout "application_admin"
 
+  before_action :check_user_logged, :verify_admin
   before_action :find_song, except: %i[index new create]
   before_action :load_data, only: %i[index new edit]
 
@@ -11,7 +12,7 @@ class Admins::SongsController < ApplicationController
         params[:category_name], params[:author_name]
     else
       Song
-    end.sort_by_create_at.paginate page: params[:page]
+    end.sort_by_create_at
     respond_to do |format|
       format.html
       format.js

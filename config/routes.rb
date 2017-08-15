@@ -3,13 +3,15 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
 
     root 'song#index'
-    devise_for :users, controllers: {registrations: "users/registrations"}
+
+    devise_for :users, controllers: {registrations: "users/registrations", sessions: "users/sessions"}
 
     resources :song
     resources :author
     resources :category
     resources :singer
     resources :album
+    resources :likes, only: [:create, :destroy]
 
     namespace :admins do
       resources :users

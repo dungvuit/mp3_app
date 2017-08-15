@@ -18,7 +18,7 @@
       </p>
       <p>
         <span class="author-name">
-          Nhạc sĩ: <%= @song.author.name %>
+          Nhạc sĩ: <%= @song.author.name if @song.author_id.present? %>
         </span>&nbsp;&nbsp;&nbsp;&nbsp;
         <span class="category-name">
           <% @song.categories.each do |category| %>
@@ -27,6 +27,11 @@
         </span>
       </p>
       <p>Lượt nghe: <%= @song.count_view %></p>
+      <div id='like-dislike'>
+        <%= render '/likes/like_song' %>
+        <%= render '/likes/dislike_song' %>
+        <%= render '/likes/count_like' %>
+      </div>
     </div>
   </div>
 </div>

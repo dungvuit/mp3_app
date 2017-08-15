@@ -7,7 +7,13 @@
 <tbody>
   <% @authors.each do |author| %>
     <tr class="background-tr">
-      <td><%= author.name %></td>
+      <td>
+        <ul>
+          <%= link_to admins_author_path(author) do %>
+            <li><%= author.name %></li>
+          <% end %>
+        </ul>
+      </td>
       <td>
         <%= link_to edit_admins_author_path author do %>
           <i class="glyphicon glyphicon-pencil"></i>

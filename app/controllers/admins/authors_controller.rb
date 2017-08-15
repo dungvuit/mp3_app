@@ -1,6 +1,7 @@
 class Admins::AuthorsController < ApplicationController
   layout "application_admin"
 
+  before_action :check_user_logged, :verify_admin
   before_action :find_author, except: %i[index new create]
 
   def index
@@ -8,16 +9,13 @@ class Admins::AuthorsController < ApplicationController
       Author.search_by_name(params[:search])
     else
       Author
-    end.sort_by_create_at.paginate page: params[:page]
+    end.sort_by_create_at
+    @author = Author.new
     respond_to do |format|
       format.html
       format.js
       format.xls {send_data @authors.to_csv(col_sep: "\t")}
     end
-  end
-
-  def new
-    @author = Author.new
   end
 
   def create
