@@ -1,8 +1,8 @@
 User.create!(
   name: "admin",
   email: "admin@gmail.com",
-  password: "123456",
-  password_confirmation: "123456",
+  password: "Thangban12",
+  password_confirmation: "Thangban12",
   is_admin: true
   )
 

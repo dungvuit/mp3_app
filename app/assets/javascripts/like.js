@@ -1,6 +1,6 @@
 jQuery(document).ready(function($){
   document.addEventListener("turbolinks:load", function() {
-    $("#like").on('click', function() {
+    $(document).on('click',"#like", function() {
       var id;
       id = $(this).attr('data_id');
       $.ajax ( {
