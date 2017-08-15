@@ -1,2 +1,5 @@
-$("#like-dislike").html('<%= escape_javascript(render('likes/dislike_song')) %>');
-$('#like-dislike').html('<%= escape_javascript(render('likes/count_like')) %>');
+<% if user_signed_in? %>
+  $("#like-dislike").html('<%= j render "likes/dislike_song" %>').append('<%= j render "likes/count_like" %>');
+<% else %>
+  $("#singin_modal").modal('show');
+<% end %>

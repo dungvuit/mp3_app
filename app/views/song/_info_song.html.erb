@@ -28,9 +28,18 @@
       </p>
       <p>Lượt nghe: <%= @song.count_view %></p>
       <div id='like-dislike'>
-        <%= render '/likes/like_song' %>
-        <%= render '/likes/dislike_song' %>
-        <%= render '/likes/count_like' %>
+          <% if !user_signed_in? %>
+            <%= render '/likes/like_song' %>
+            <%= render '/likes/count_like' %>
+          <% else %>
+            <% if current_user.likes.present? %>
+              <%= render '/likes/dislike_song' %>
+              <%= render '/likes/count_like' %>
+            <% else %>
+              <%= render '/likes/like_song' %>
+              <%= render '/likes/count_like' %>
+            <% end %>
+          <% end %>
       </div>
     </div>
   </div>
