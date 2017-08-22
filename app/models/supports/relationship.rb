@@ -14,4 +14,8 @@ class Supports::Relationship
   def singers
     @singers = Singer.all.collect {|singer| [singer.name, singer.id]}
   end
+
+  def albums
+    @albums = Album.all.collect {|album| [album.name, album.id]}
+  end
 end

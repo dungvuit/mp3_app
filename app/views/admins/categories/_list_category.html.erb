@@ -2,6 +2,7 @@
   <tr>
     <th><%= t "views.admins.categories.text_form.name" %></th>
     <th><%= t "views.admins.songs.text_form.name" %></th>
+    <th><%= t "views.admins.albums.text_form.name" %></th>
     <th class="action"><%= t "views.admins.form.action" %></th>
   </tr>
 </thead>
@@ -20,6 +21,15 @@
           <% category.songs.each do |song| %>
             <%= link_to admins_song_path(song) do %>
               <li><%= song.name %></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <% category.albums.each do |album| %>
+            <%= link_to admins_album_path(album) do %>
+              <li><%= album.name %></li>
             <% end %>
           <% end %>
         </ul>

@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170808042117) do
+ActiveRecord::Schema.define(version: 20170821025230) do
+
+  create_table "album_categories", force: :cascade do |t|
+    t.integer  "album_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["album_id"], name: "index_album_categories_on_album_id"
+    t.index ["category_id"], name: "index_album_categories_on_category_id"
+  end
 
   create_table "album_songs", force: :cascade do |t|
     t.integer  "song_id"
@@ -23,9 +32,11 @@ ActiveRecord::Schema.define(version: 20170808042117) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "name"
+    t.string   "picture"
+    t.integer  "count_view", default: 0
     t.integer  "singer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "authors", force: :cascade do |t|

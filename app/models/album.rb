@@ -2,10 +2,15 @@ class Album < ApplicationRecord
   scope :sort_by_create_at, -> {order created_at: :desc}
   scope :search_by_name, -> search {where "name LIKE ?", "%#{search}%"}
 
+  mount_uploader :picture, PictureUploader
+
   belongs_to :singer
 
   has_many :songs, through: :album_songs
   has_many :album_songs, dependent: :destroy
+
+  has_many :categories, through: :album_categories
+  has_many :album_categories, dependent: :destroy
 
   class << self
     def to_csv options = {}

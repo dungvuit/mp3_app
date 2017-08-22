@@ -11,15 +11,12 @@ class Admins::AlbumsController < ApplicationController
     else
       Album
     end.sort_by_create_at
+    @album = Album.new
     respond_to do |format|
       format.html
       format.js
       format.xls {send_data @albums.to_csv(col_sep: "\t")}
     end
-  end
-
-  def new
-    @album = Album.new
   end
 
   def create
@@ -62,7 +59,7 @@ class Admins::AlbumsController < ApplicationController
   end
 
   def album_params
-    params.require(:album).permit :name, :singer_id
+    params.require(:album).permit :name, :picture, :singer_id, :category_ids
   end
 
   def load_data

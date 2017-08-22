@@ -1,23 +1,12 @@
-class Admins::SongsController < ApplicationController
-  layout "application_admin"
+class SongsController < ApplicationController
 
-  before_action :check_user_logged, :verify_admin
+  before_action :check_user_logged, only: %i[new create]
   before_action :find_song, except: %i[index new create]
   before_action :load_data, only: %i[index new edit]
 
   def index
-    @songs = if params[:song_name].present? || params[:singer_name].present? ||
-      params[:category_name].present? || params[:author_name].present?
-      Song.search_song params[:song_name], params[:singer_name],
-        params[:category_name], params[:author_name]
-    else
-      Song
-    end.sort_by_create_at
-    respond_to do |format|
-      format.html
-      format.js
-      format.xls {send_data @songs.to_csv(col_sep: "\t")}
-    end
+    @songs = Song.top
+    @categories = Category.all
   end
 
   def new
@@ -28,17 +17,21 @@ class Admins::SongsController < ApplicationController
     @song = Song.new song_params
     if @song.save
       flash[:success] = "Create Song Successfully!"
-      redirect_to admins_songs_path
+      redirect_to root_path
     else
       render :new
     end
+  end
+
+  def show
+    @song.update_attribute(:count_view, @song.count_view + 1)
   end
 
   def edit; end
 
   def update
     if @song.update_attributes song_params
-      redirect_to admins_songs_path
+      redirect_to root_path
       flash[:success] = "Song Edit Successfully!"
     else
       render :edit
@@ -48,7 +41,7 @@ class Admins::SongsController < ApplicationController
   def destroy
     @song.destroy
     flash[:success] = "Song Delete Successfully!"
-    redirect_to admins_songs_path
+    redirect_to root_path
   end
 
   private
@@ -57,13 +50,13 @@ class Admins::SongsController < ApplicationController
     @song = Song.find_by id: params[:id]
     unless @song
       flash[:danger] = "Song not exits!"
-      redirect_to admins_songs_path
+      redirect_to root_path
     end
   end
 
   def song_params
     params.require(:song).permit :name, :content, :picture, :url_song,
-      :author_id, :category_ids, :singer_ids, :album_ids
+      :author_id, :category_ids, :singer_ids
   end
 
   def load_data

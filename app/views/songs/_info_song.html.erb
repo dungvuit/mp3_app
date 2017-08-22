@@ -32,7 +32,7 @@
             <%= render '/likes/like_song' %>
             <%= render '/likes/count_like' %>
           <% else %>
-            <% if current_user.likes.present? %>
+            <% if @song.liked? current_user %>
               <%= render '/likes/dislike_song' %>
               <%= render '/likes/count_like' %>
             <% else %>
@@ -49,4 +49,4 @@
   <audio src="<%= @song.url_song %>" type="audio/mpeg" controls loop>
   </audio>
 </p>
-<%= render 'song/content_song' %>
+<%= render 'songs/content_song' %>

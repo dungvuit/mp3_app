@@ -3,13 +3,13 @@
   <div class="wrap-content">
     <div class="row">
       <div class="col-md-8">
-        <%= render 'song/slide' %>
-        <%= render 'song/playlist' %>
-        <%= render 'song/album' %>
-        <%= render 'song/video' %>
+        <%= render 'songs/slide' %>
+        <div class="category-scroll">
+          <%= render 'songs/playlist' %>
+        </div>
       </div>
       <div class="col-md-4">
-        <%= render 'song/rank_song' %>
+        <%= render 'songs/rank_song' %>
       </div>
       <div class="clearfix"></div>
     </div>
