@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-8">
+      <div class="wrap-song">
+        <% @album.songs.each_with_index do |song, i| %>
+          <div class="songs">
+            <div class="row">
+              <div class="col-md-2">
+                <p><%= i + 1 %></p>
+              </div>
+              <div class="col-md-4">
+              <p class="replace-content-song" data_id="<%= song.id %>">
+                <span><%= song.name %></span>
+              <p>
+              </div>
+              <div class="col-md-5">
+                <%= link_to "#" do %>
+                   <% song.singers.each do |singer| %>
+                      <span><%= singer.name %></span>
+                   <% end %>
+                <% end %>
+              </div>
+              <div class="col-md-1">
+                <p><%= song.count_view %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+  </div>
+</div>

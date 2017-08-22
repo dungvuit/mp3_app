@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="wrap-content">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-2">
+            <%= image_tag @album.picture, class: "size-img-thumbnail" %>
+          </div>
+          <div class="col-md-10">
+            <div class="info-song">
+              <p>
+                <span class="song-name">
+                  <%= @album.name %> -
+                </span>
+                <span class="singer-name">
+                  <%= link_to "#" do %>
+                    <%= @album.singer.name %>
+                  <% end %>
+                </span>
+              </p>
+              <p>
+                <span class="category-name">
+                  <% @album.categories.each do |category| %>
+                    Thể loại: <%= category.name %>
+                  <% end %>
+                </span>
+              </p>
+              <p>Lượt nghe: <%= @album.count_view %></p>
+            </div>
+          </div>
+        </div>
+        <br>
+        <%= render 'list_song' %>
+        <div id="content-song-album">
+          <%= render partial: 'content_album_song', locals: { song: @album.songs.last } %>
+        </div>
+      </div>
+      <div class="col-md-4">
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>

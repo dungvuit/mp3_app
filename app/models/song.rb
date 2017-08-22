@@ -1,5 +1,6 @@
 class Song < ApplicationRecord
   scope :sort_by_create_at, -> {order created_at: :desc}
+  scope :top, -> {(order count_view: :desc).limit(10)}
 
   mount_uploader :picture, PictureUploader
   mount_uploader :url_song, AudioUploader
@@ -28,6 +29,10 @@ class Song < ApplicationRecord
     .joins(:singers).where("singers.name LIKE ?", "%#{singer_name}%")
     .joins(:categories).where("categories.name LIKE ?", "%#{category_name}%")
     .joins(:author).where "authors.name LIKE ?","%#{author_name}%"
+  end
+
+  def liked? user
+    likes.where(user_id: user.id).present?
   end
 
   class << self

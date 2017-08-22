@@ -1,15 +1,27 @@
 <thead>
   <tr>
+    <th><%= t "views.admins.albums.text_form.images" %></th>
     <th><%= t "views.admins.albums.text_form.name" %></th>
     <th><%= t "views.admins.singers.text_form.name" %></th>
+    <th><%= t "views.admins.categories.text_form.name" %></th>
     <th class="action"><%= t "views.admins.form.action" %></th>
   </tr>
 </thead>
 <tbody>
   <% @albums.each do |album| %>
     <tr class="background-tr">
+      <td>
+        <%= link_to admins_album_path(album) do %>
+          <%= image_tag album.picture, class: "size-img-thumbnail" %>
+        <% end %>
+      </td>
       <td><%= album.name %></td>
       <td><%= album.singer.name %></td>
+      <td>
+        <% album.categories.each do |category| %>
+          <%= category.name %>
+        <% end %>
+      </td>
       <td>
         <%= link_to edit_admins_album_path album do %>
           <i class="glyphicon glyphicon-pencil"></i>

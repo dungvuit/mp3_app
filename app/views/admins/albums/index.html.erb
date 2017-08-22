@@ -8,12 +8,6 @@
       <div class="button-manager pull-right">
         <ul>
           <li>
-            <%= link_to new_admins_album_path do %>
-              <i class="glyphicon glyphicon-plus"></i>
-              <%= t "button.create" %>
-            <% end %>
-          </li>
-          <li>
             <%= link_to admins_albums_path(format: "xls") do %>
               <i class="glyphicon glyphicon-export"></i>
               <%= t "button.export" %>
@@ -36,10 +30,17 @@
         <% end %>
       </div>
     </div>
-    <div class="table-responsive">
-      <table class="table table-bordered table-hover">
-        <%= render "list_album" %>
-      </table>
+    <div class="row">
+      <div class="col-md-6">
+        <%= render "new" %>
+      </div>
+      <div class="col-md-6">
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover">
+            <%= render "list_album" %>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>

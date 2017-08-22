@@ -80,6 +80,7 @@ en:
           save: "Save"
         text_form:
           name: "Album Name"
+          images: "Thumbnail"
       authors:
         title:
           index: "Show Authors"

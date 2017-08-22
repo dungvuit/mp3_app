@@ -2,15 +2,19 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   scope "(:locale)", locale: /en|vi/ do
 
-    root 'song#index'
+    root 'songs#index'
 
     devise_for :users, controllers: {registrations: "users/registrations", sessions: "users/sessions"}
 
-    resources :song
-    resources :author
-    resources :category
-    resources :singer
-    resources :album
+    resources :songs
+    resources :authors
+    resources :categorys
+    resources :singers
+    resources :albums do
+      collection do
+        get 'album_song'
+      end
+    end
     resources :likes, only: [:create, :destroy]
 
     namespace :admins do
