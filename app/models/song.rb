@@ -23,6 +23,7 @@ class Song < ApplicationRecord
 
   belongs_to :author
   has_many :likes
+  has_many :comments
 
   scope :search_song, -> song_name, singer_name, category_name, author_name do
     where("songs.name LIKE ?","%#{song_name}%")
@@ -33,6 +34,10 @@ class Song < ApplicationRecord
 
   def liked? user
     likes.where(user_id: user.id).present?
+  end
+
+  def commented? user
+    comments.where(user_id: user.id).present?
   end
 
   class << self

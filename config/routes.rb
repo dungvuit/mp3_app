@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       end
     end
     resources :likes, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy, :edit, :update]
 
     namespace :admins do
       resources :users
