@@ -1,0 +1,10 @@
+<% if user_signed_in? %>
+  <div id="comment">
+    <%= render 'comments/count_comment' %>
+    <%= render 'comments/list_comment' %>
+  </div>
+<% else %>
+  <div id="comment">
+    <%= render 'comments/user_comment' %>
+  </div>
+<% end %>

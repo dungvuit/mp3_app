@@ -1,0 +1,6 @@
+<% if user_signed_in? %>
+  $("#comment").html('<%= j render "comments/count_comment" %>').
+    append('<%= j render "comments/list_comment" %>');
+<% else %>
+  $("#singin_modal").modal('show');
+<% end %>

@@ -1,0 +1,23 @@
+<div class="content-comment">
+  <% @song.comments.each do |comment| %>
+    <div class="row">
+      <div class="col-md-2">
+        <%= image_tag current_user.image, id: "avatar-user-comment" %>&nbsp;&nbsp;
+      </div>
+      <div class="col-md-7">
+        <%= comment.content %>
+      </div>
+      <% if @song.commented? current_user %>
+        <div class="col-md-3 action-comment">
+          <span>
+            <%= link_to edit_comment_path comment do %>
+              <i class="glyphicon glyphicon-pencil"></i>
+            <% end %>
+            <i class="glyphicon glyphicon-trash" id="delete-comment" data_id="<%= comment.id %>" song_id="<%= @song.id %>"> </i>
+          </span>
+        </div>
+        <% end %>
+    </div>
+    <br><br>
+  <% end %>
+</div>

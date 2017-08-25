@@ -12,6 +12,61 @@
 }
 
 .users {
+  .content-comment {
+    position: relative;
+    height: auto;
+    .action-comment {
+      cursor: pointer;
+      span {
+        position: absolute;
+        top: 35px;
+      }
+      #delete-comment {
+        &:hover {
+          color: #3399ff;
+        }
+      }
+      #edit-comment {
+        &:hover {
+          color: #3399ff;
+        }
+      }
+    }
+    #avatar-user-comment {
+      max-width: 60px;
+    }
+    textarea {
+      height: 60px;
+      position: absolute;
+      right: 0;
+      width: 89%;
+    }
+  }
+  .form-comment {
+    position: relative;
+    height: 150px;
+    h3 {
+      margin: 0;
+    }
+    #avatar-user-comment {
+      max-width: 60px;
+    }
+    textarea {
+      height: 60px;
+      position: absolute;
+      right: 0;
+      width: 89%;
+    }
+    #comment {
+      bottom: 0;
+      position: absolute;
+      right: 0;
+    }
+  }
+  .border-form-comment {
+    margin: 20px 0;
+    border-bottom: 1px solid #DEDEDE;
+  }
   .wrap-song {
     background: #fafafa;
     margin: 10px 0;
@@ -142,7 +197,7 @@
           right: 0;
           top: 38px;
           width: 100%;
-          z-index: 1;
+          z-index: 99999;
           li {
             list-style: none;
             a {

@@ -1,0 +1,23 @@
+<br><br>
+<div class="form-comment">
+  <h3>Comment (<%= @song.comments.count :user_id %>)</h3><br>
+  <%= image_tag "default-image.png", id: "avatar-user-comment" %>&nbsp;&nbsp;
+  <%= text_area_tag :content %>
+  <%= button_tag id: "comment", data_id: @song.id do %>
+    Comment
+  <% end %>
+</div>
+<div class="border-form-comment"></div>
+<div class="content-comment">
+  <% @song.comments.each do |comment| %>
+    <div class="row">
+      <div class="col-md-2">
+        <%= image_tag comment.user.image, id: "avatar-user-comment" %>&nbsp;&nbsp;
+      </div>
+      <div class="col-md-7">
+        <%= comment.content %>
+      </div>
+    </div>
+    <br><br>
+  <% end %>
+</div>

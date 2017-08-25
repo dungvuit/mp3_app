@@ -12,6 +12,7 @@ class User < ApplicationRecord
   mount_uploader :image, PictureUploader
 
   has_many :likes
+  has_many :comments
 
   has_many :songs, through: :user_songs
   has_many :user_songs, dependent: :destroy

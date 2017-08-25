@@ -29,6 +29,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'ransack'
 gem 'devise'
 gem "faker"
+gem "will_paginate"
 
 group :development, :test do
   gem 'byebug', platform: :mri
