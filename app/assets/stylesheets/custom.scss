@@ -15,18 +15,45 @@
   .content-comment {
     position: relative;
     height: auto;
+    .cancel {
+      display: none;
+      &:hover {
+        color: #3399ff;
+      }
+    }
+    .save {
+      display: none;
+      &:hover {
+        color: #3399ff;
+      }
+    }
+    .textarea_comment {
+      display: none;
+    }
+    .name-user-comment {
+      font-size: 16px;
+    }
+    .content-user-comment {
+      color: #666666;
+      font-size: 14px;
+    }
+    .time-comment {
+      color: #666666;
+      font-size: 13px;
+    }
     .action-comment {
       cursor: pointer;
       span {
+        font-size: 18px;
         position: absolute;
         top: 35px;
       }
-      #delete-comment {
+      .delete-comment {
         &:hover {
           color: #3399ff;
         }
       }
-      #edit-comment {
+      .edit-comment {
         &:hover {
           color: #3399ff;
         }
@@ -38,7 +65,6 @@
     textarea {
       height: 60px;
       position: absolute;
-      right: 0;
       width: 89%;
     }
   }

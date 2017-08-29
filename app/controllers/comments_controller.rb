@@ -18,17 +18,9 @@ class CommentsController < ApplicationController
     end
   end
 
-  def edit
-    @song = Song.find_by id: params[:song_id]
-    @comment = Comment.find_by id: params[:id]
-  end
-
   def update
-    @comment = Comment.find_by id: params[:id]
-    @comment.update_attributes comment_params
-  end
-
-  def comment_params
-    params.require(:comment).permit :content
+    @song = Song.find_by id: params[:song_id]
+    @comment = @song.comments.find_by id: params[:id]
+    @comment.update_attributes content: params[:content]
   end
 end

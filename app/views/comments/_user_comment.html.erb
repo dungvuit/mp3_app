@@ -15,7 +15,11 @@
         <%= image_tag comment.user.image, id: "avatar-user-comment" %>&nbsp;&nbsp;
       </div>
       <div class="col-md-7">
-        <%= comment.content %>
+        <p class="name-user-comment"><%= comment.user.name %></p>
+        <p class="content-user-comment"><%= comment.content %></p>
+      </div>
+      <div class="time-comment">
+        <%= comment.created_at.strftime("%H:%M %d/%m/%Y") %>
       </div>
     </div>
     <br><br>

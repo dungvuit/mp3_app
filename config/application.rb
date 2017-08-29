@@ -14,5 +14,6 @@ module Mp3App
     # -- all .rb files in that directory are automatically loaded.
     config.exceptions_app = self.routes
     config.action_view.embed_authenticity_token_in_remote_forms = true
+    config.time_zone = 'Hanoi'
   end
 end
