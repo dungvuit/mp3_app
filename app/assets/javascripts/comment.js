@@ -5,7 +5,7 @@ jQuery(document).ready(function($){
       id = $(this).attr('data_id');
       content = $('#content').val();
       $.ajax ( {
-        url: '/comments',
+        url: '/songs/' + id + '/comments',
         type: 'POST',
         data: 'song_id=' + id  + '&content=' + content,
         dataType: 'script'

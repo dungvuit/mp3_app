@@ -2,18 +2,23 @@
   <% @song.comments.each do |comment| %>
     <div class="row">
       <div class="col-md-2">
-        <%= image_tag current_user.image, id: "avatar-user-comment" %>&nbsp;&nbsp;
+        <%= image_tag comment.user.image, id: "avatar-user-comment" %>&nbsp;&nbsp;
       </div>
       <div class="col-md-7">
-        <%= comment.content %>
+        <p class="name-user-comment"><%= comment.user.name %></p>
+        <p class="content-user-comment" id="cmt_<%= comment.id %>"><%= comment.content %></p>
+        <textarea class="textarea_comment" id="cmt_text_<%= comment.id %>"> <%= comment.content %></textarea>
       </div>
-      <% if @song.commented? current_user %>
-        <div class="col-md-3 action-comment">
+      <div class="time-comment">
+        <%= comment.created_at.strftime("%H:%M %d/%m/%Y") %>
+      </div>
+      <% if comment.user == current_user %>
+        <div class="col-md-3 pull-right action-comment">
           <span>
-            <%= link_to edit_comment_path comment do %>
-              <i class="glyphicon glyphicon-pencil"></i>
-            <% end %>
-            <i class="glyphicon glyphicon-trash" id="delete-comment" data_id="<%= comment.id %>" song_id="<%= @song.id %>"> </i>
+            <i class="fa fa-pencil-square-o edit-comment" id="edit-comment_<%= comment.id %>" data_id="<%= comment.id %>" song_id="<%= @song.id %>"></i>
+            <i class="fa fa-trash-o delete-comment" id="delete-comment_<%= comment.id %>" data_id="<%= comment.id %>" song_id="<%= @song.id %>"></i>
+            <i class="fa fa-floppy-o save" id="save_<%= comment.id %>" data_id="<%= comment.id %>" song_id="<%= @song.id %>"></i>
+            <i class="fa fa-ban cancel" id="cancel_<%= comment.id %>" data_id="<%= comment.id %>" song_id="<%= @song.id %>"></i>
           </span>
         </div>
         <% end %>
@@ -21,3 +26,4 @@
     <br><br>
   <% end %>
 </div>
+

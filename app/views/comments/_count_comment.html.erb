@@ -1,6 +1,6 @@
 <br><br>
 <div class="form-comment">
-  <h3>Comment (<%= @song.comments.count :user_id %>)</h3><br>
+  <h3>Comment (<%= @song.comments.count %>)</h3><br>
   <%= image_tag current_user.image, id: "avatar-user-comment" %>&nbsp;&nbsp;
   <%= text_area_tag :content %>
   <%= button_tag id: "comment", data_id: @song.id do %>

@@ -7,7 +7,6 @@ class SongsController < ApplicationController
   def index
     @songs = Song.top
     @categories = Category.all
-    @comments = Comment.all
   end
 
   def new

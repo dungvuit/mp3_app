@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
     devise_for :users, controllers: {registrations: "users/registrations", sessions: "users/sessions"}
 
-    resources :songs
+    resources :songs do
+      resources :comments
+    end
     resources :authors
     resources :categorys
     resources :singers
@@ -16,7 +18,6 @@ Rails.application.routes.draw do
       end
     end
     resources :likes, only: [:create, :destroy]
-    resources :comments, only: [:create, :destroy, :edit, :update]
 
     namespace :admins do
       resources :users
