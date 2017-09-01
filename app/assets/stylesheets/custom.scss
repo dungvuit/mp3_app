@@ -15,6 +15,72 @@
   .content-comment {
     position: relative;
     height: auto;
+    .li-user-reply {
+      padding: 15px 60px;
+    }
+    ul {
+      clear: both;
+    }
+    .time-user-comment {
+      position: absolute;
+      right: 0;
+      color: #666;
+      font-size: 13px;
+    }
+    .time-user-comment-signed {
+      position: absolute;
+      right: 0;
+      top: 0;
+      color: #666;
+      font-size: 13px;
+    }
+    .time-user-comment-reply-signed {
+      position: absolute;
+      right: 0;
+      top: 0;
+      color: #666;
+      font-size: 13px;
+    }
+    .time-user-comment-reply {
+      position: absolute;
+      right: 40px;
+      color: #666;
+      font-size: 13px;
+    }
+    li {
+      height: auto;
+      padding-bottom: 15px;
+    }
+    .avatar-user-comment {
+      float: left;
+    }
+    .avatar-user-comment-reply {
+      float: left;
+    }
+    .avatar-user-comment-reply {
+      float: left;
+    }
+    .post-comment {
+      margin-left: 75px;
+      margin-bottom: 20px;
+    }
+    .post-comment-signed {
+      position: relative;
+      margin-left: 75px;
+      margin-bottom: 20px;
+    }
+    .post-comment-reply-signed {
+      position: relative;
+      margin-left: 75px;
+      margin-bottom: 20px;
+    }
+    .post-comment-reply {
+      margin-left: 75px;
+      margin-bottom: 20px;
+    }
+    .content-reply {
+      margin-top: 10px;
+    }
     .cancel {
       display: none;
       &:hover {
@@ -30,10 +96,23 @@
     .textarea_comment {
       display: none;
     }
+    .textarea_reply {
+      display: none;
+    }
+    .save-comment-reply {
+      display: none;
+    }
+    .cancel-comment-reply {
+      display: none;
+    }
     .name-user-comment {
       font-size: 16px;
     }
     .content-user-comment {
+      color: #666666;
+      font-size: 14px;
+    }
+    .content-user-comment-reply {
       color: #666666;
       font-size: 14px;
     }
@@ -43,10 +122,20 @@
     }
     .action-comment {
       cursor: pointer;
+      position: absolute;
+      right: 95px;
+      top: 0;
       span {
+        display: flex;
         font-size: 18px;
         position: absolute;
         top: 35px;
+        button {
+          margin: 0 10px 0 0;
+        }
+        i {
+          padding: 0 10px 0 0;
+        }
       }
       .delete-comment {
         &:hover {
@@ -63,9 +152,7 @@
       max-width: 60px;
     }
     textarea {
-      height: 60px;
-      position: absolute;
-      width: 89%;
+      width: 75%;
     }
   }
   .form-comment {

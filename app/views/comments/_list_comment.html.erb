@@ -1,29 +1,88 @@
-<div class="content-comment">
+<div class='content-comment'>
   <% @song.comments.each do |comment| %>
-    <div class="row">
-      <div class="col-md-2">
-        <%= image_tag comment.user.image, id: "avatar-user-comment" %>&nbsp;&nbsp;
-      </div>
-      <div class="col-md-7">
-        <p class="name-user-comment"><%= comment.user.name %></p>
-        <p class="content-user-comment" id="cmt_<%= comment.id %>"><%= comment.content %></p>
-        <textarea class="textarea_comment" id="cmt_text_<%= comment.id %>"> <%= comment.content %></textarea>
-      </div>
-      <div class="time-comment">
-        <%= comment.created_at.strftime("%H:%M %d/%m/%Y") %>
-      </div>
-      <% if comment.user == current_user %>
-        <div class="col-md-3 pull-right action-comment">
-          <span>
-            <i class="fa fa-pencil-square-o edit-comment" id="edit-comment_<%= comment.id %>" data_id="<%= comment.id %>" song_id="<%= @song.id %>"></i>
-            <i class="fa fa-trash-o delete-comment" id="delete-comment_<%= comment.id %>" data_id="<%= comment.id %>" song_id="<%= @song.id %>"></i>
-            <i class="fa fa-floppy-o save" id="save_<%= comment.id %>" data_id="<%= comment.id %>" song_id="<%= @song.id %>"></i>
-            <i class="fa fa-ban cancel" id="cancel_<%= comment.id %>" data_id="<%= comment.id %>" song_id="<%= @song.id %>"></i>
-          </span>
-        </div>
-        <% end %>
-    </div>
-    <br><br>
+    <% unless comment.parent_id.present? %>
+      <ul>
+        <li>
+          <div class='avatar-user-comment'>
+            <%= image_tag comment.user.image, id: 'avatar-user-comment' %>
+          </div>
+          <div class='post-comment-signed'>
+            <div class='name-user-comment'>
+              <%= comment.user.name %>
+            </div>
+            <div class='content-user-comment' id='cmt_<%= comment.id %>'>
+              <%= comment.content %>
+            </div>
+            <textarea class='textarea_comment' id='cmt_text_<%= comment.id %>'>
+              <%= comment.content %>
+            </textarea>
+            <textarea class='textarea_reply' id='reply_text_<%= comment.id %>'>
+            </textarea>
+            <div class='time-user-comment-signed'>
+              <%= comment.created_at.strftime('%H:%M %d/%m/%Y') %>
+            </div>
+            <% if comment.user == current_user %>
+              <div class='action-comment'>
+                <span>
+                  <i class='fa fa-pencil-square-o edit-comment'
+                    id='edit-comment_<%= comment.id %>'
+                      data_id='<%= comment.id %>' song_id='<%= @song.id %>'></i>
+                  <i class='fa fa-trash-o delete-comment'
+                    id='delete-comment_<%= comment.id %>'
+                      data_id='<%= comment.id %>' song_id='<%= @song.id %>'></i>
+                  <i class='fa fa-floppy-o save'
+                    id='save_<%= comment.id %>'
+                      data_id='<%= comment.id %>' song_id='<%= @song.id %>'></i>
+                  <i class='fa fa-ban cancel'
+                    id='cancel_<%= comment.id %>'
+                      data_id='<%= comment.id %>' song_id='<%= @song.id %>'></i>
+                </span>
+              </div>
+              <% else comment.user != current_user %>
+                <div class='action-comment'>
+                  <span>
+                    <button class='reply-comment' id='reply-comment_<%= comment.id %>'
+                      data_id='<%= comment.id %>'>Reply</button>
+                    <button class='save-comment-reply' id='save-comment-reply_<%= comment.id %>'
+                      data_id='<%= comment.id %>' song_id='<%= @song.id %>'
+                        parent_id='<%= comment.id %>'>Save</button>
+                    <button class='cancel-comment-reply' id='cancel-comment-reply_<%= comment.id %>'
+                      data_id='<%= comment.id %>'>Cancel</button>
+                  </span>
+                </div>
+              <% end %>
+          </div>
+          <% comment.replies.each do |reply| %>
+            <ul class='ul-user-reply'>
+              <li class='li-user-reply'>
+                <div class='avatar-user-comment-reply'>
+                <%= image_tag reply.user.image, id: 'avatar-user-comment' %>
+                </div>
+                <div class='post-comment-reply-signed'>
+                  <div class='name-user-comment-reply'>
+                    <%= reply.user.name %>
+                  </div>
+                  <div class='content-user-comment-reply'>
+                    <%= reply.content %>
+                  </div>
+                  <div class='time-user-comment-reply-signed'>
+                    <%= reply.created_at.strftime('%H:%M %d/%m/%Y') %>
+                  </div>
+                  <% if reply.user == current_user %>
+                    <div class='action-comment'>
+                      <span>
+                        <i class='fa fa-trash-o delete-comment'
+                          id='delete-comment_<%= comment.id %>' data_id='<%= reply.id %>'
+                            song_id='<%= @song.id %>'></i>
+                      </span>
+                    </div>
+                  <% end %>
+                </div>
+              </li>
+            </ul>
+          <% end %>
+        </li>
+      </ul>
+    <% end %>
   <% end %>
 </div>
-

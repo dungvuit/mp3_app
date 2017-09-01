@@ -10,18 +10,45 @@
 <div class="border-form-comment"></div>
 <div class="content-comment">
   <% @song.comments.each do |comment| %>
-    <div class="row">
-      <div class="col-md-2">
-        <%= image_tag comment.user.image, id: "avatar-user-comment" %>&nbsp;&nbsp;
-      </div>
-      <div class="col-md-7">
-        <p class="name-user-comment"><%= comment.user.name %></p>
-        <p class="content-user-comment"><%= comment.content %></p>
-      </div>
-      <div class="time-comment">
-        <%= comment.created_at.strftime("%H:%M %d/%m/%Y") %>
-      </div>
-    </div>
-    <br><br>
+    <% unless comment.parent_id.present? %>
+      <ul>
+        <li>
+          <div class="avatar-user-comment">
+            <%= image_tag comment.user.image, id: "avatar-user-comment" %>
+          </div>
+          <div class="post-comment">
+            <div class="name-user-comment">
+              <%= comment.user.name %>
+            </div>
+            <div class="content-user-comment">
+              <%= comment.content %>
+            </div>
+            <div class="time-user-comment">
+              <%= comment.created_at.strftime("%H:%M %d/%m/%Y") %>
+            </div>
+          </div>
+          <% comment.replies.each do |reply| %>
+            <ul class="ul-user-reply">
+              <li class="li-user-reply">
+                <div class="avatar-user-comment-reply">
+                <%= image_tag reply.user.image, id: "avatar-user-comment" %>
+                </div>
+                <div class="post-comment-reply">
+                  <div class="name-user-comment-reply">
+                    <%= reply.user.name %>
+                  </div>
+                  <div class="content-user-comment-reply">
+                    <%= reply.content %>
+                  </div>
+                  <div class="time-user-comment-reply">
+                    <%= reply.created_at.strftime("%H:%M %d/%m/%Y") %>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          <% end %>
+        </li>
+      </ul>
+    <% end %>
   <% end %>
 </div>

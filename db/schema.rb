@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20170822035116) do
     t.string   "content"
     t.integer  "user_id"
     t.integer  "song_id"
+    t.integer  "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["song_id"], name: "index_comments_on_song_id"
