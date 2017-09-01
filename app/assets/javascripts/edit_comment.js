@@ -39,6 +39,7 @@ jQuery(document).ready(function($){
         $('#save_' + id).hide();
         $('#cancel_' + id).hide();
         $('#edit-comment_' + id).show();
+        $('#delete-comment_' + id).show();
     });
   });
 });

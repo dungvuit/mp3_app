@@ -3,7 +3,8 @@ class CommentsController < ApplicationController
   def create
     if user_signed_in?
       @song = Song.find_by id: params[:song_id]
-      @comment = @song.comments.create!(user_id: current_user.id, content: params[:content])
+      @comment = @song.comments.create!(user_id: current_user.id, content: params[:content],
+        parent_id: params[:parent_id])
     end
     respond_to do |format|
       format.js

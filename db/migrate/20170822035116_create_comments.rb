@@ -4,6 +4,7 @@ class CreateComments < ActiveRecord::Migration[5.0]
       t.string :content
       t.references :user, foreign_key: true
       t.references :song, foreign_key: true
+      t.integer :parent_id
 
       t.timestamps
     end
