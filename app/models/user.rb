@@ -17,6 +17,8 @@ class User < ApplicationRecord
   has_many :songs, through: :user_songs
   has_many :user_songs, dependent: :destroy
 
+  has_many :favorite
+
   validates :name, presence: true, length: {maximum: 50}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: {maximum: 255},

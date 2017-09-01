@@ -25,6 +25,10 @@ class Song < ApplicationRecord
   has_many :likes
   has_many :comments
 
+  #Favorite Song
+  has_many :favorites, through: :favorite_songs
+  has_many :favorite_songs, dependent: :destroy
+
   scope :search_song, -> song_name, singer_name, category_name, author_name do
     where("songs.name LIKE ?","%#{song_name}%")
     .joins(:singers).where("singers.name LIKE ?", "%#{singer_name}%")

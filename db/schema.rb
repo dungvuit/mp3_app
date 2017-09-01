@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170822035116) do
+ActiveRecord::Schema.define(version: 20170901083236) do
 
   create_table "album_categories", force: :cascade do |t|
     t.integer  "album_id"
@@ -81,6 +81,23 @@ ActiveRecord::Schema.define(version: 20170822035116) do
     t.datetime "updated_at", null: false
     t.index ["song_id"], name: "index_comments_on_song_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "favorite_songs", force: :cascade do |t|
+    t.integer  "song_id"
+    t.integer  "favorite_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["favorite_id"], name: "index_favorite_songs_on_favorite_id"
+    t.index ["song_id"], name: "index_favorite_songs_on_song_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|

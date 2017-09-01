@@ -9,13 +9,7 @@
 <tbody>
   <% @categories.each do |category| %>
     <tr class="background-tr">
-      <td>
-        <ul>
-          <%= link_to admins_category_path(category) do %>
-            <li><%= category.name %></li>
-          <% end %>
-        </ul>
-      </td>
+      <td><%= category.name %></td>
       <td>
         <ul>
           <% category.songs.each do |song| %>
