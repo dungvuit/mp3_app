@@ -17,6 +17,7 @@ Rails.application.routes.draw do
         get 'album_song'
       end
     end
+    resources :users
     resources :likes, only: [:create, :destroy]
 
     namespace :admins do

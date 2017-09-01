@@ -48,6 +48,11 @@
 <p>
   <audio src="<%= @song.url_song %>" type="audio/mpeg" controls loop>
   </audio>
+  <div class="add-song-favorite">
+    <%= button_tag id: "add-favorite-song" do %>
+      <i class="fa fa-plus"></i> Add Playlist
+    <% end %>
+  </div>
 </p>
 <%= render 'songs/content_song' %>
 <%= render 'comments/form_comment' %>
