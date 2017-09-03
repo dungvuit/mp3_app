@@ -1,5 +1,7 @@
 class Category < ApplicationRecord
 
+  scope :limit_display, -> {(order created_at: :desc).limit(5)}
+
   before_save :capitalize_name
 
   has_many :songs, through: :category_songs
