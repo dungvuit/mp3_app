@@ -1,6 +1,7 @@
 class Album < ApplicationRecord
   scope :sort_by_create_at, -> {order created_at: :desc}
   scope :search_by_name, -> search {where "name LIKE ?", "%#{search}%"}
+  scope :limit_display, -> {(order created_at: :desc).limit(5)}
 
   mount_uploader :picture, PictureUploader
 
