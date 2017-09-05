@@ -30,6 +30,7 @@ class Admins::SongsController < ApplicationController
       flash[:success] = "Create Song Successfully!"
       redirect_to admins_songs_path
     else
+      load_data
       render :new
     end
   end
@@ -41,6 +42,7 @@ class Admins::SongsController < ApplicationController
       redirect_to admins_songs_path
       flash[:success] = "Song Edit Successfully!"
     else
+      load_data
       render :edit
     end
   end
@@ -62,7 +64,7 @@ class Admins::SongsController < ApplicationController
   end
 
   def song_params
-    params.require(:song).permit :name, :content, :picture, :url_song,
+    params.require(:song).permit :name, :content, :picture, :file_song,
       :author_id, :category_ids, :singer_ids, :album_ids
   end
 

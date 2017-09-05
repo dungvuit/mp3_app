@@ -3,6 +3,9 @@ class Album < ApplicationRecord
   scope :search_by_name, -> search {where "name LIKE ?", "%#{search}%"}
   scope :limit_display, -> {(order created_at: :desc).limit(5)}
 
+  validates :name, presence: true
+  validates_presence_of :picture
+
   mount_uploader :picture, PictureUploader
 
   belongs_to :singer

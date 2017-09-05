@@ -28,6 +28,7 @@ class Admins::SingersController < ApplicationController
       flash[:success] = 'Create Singer Successfully!'
       redirect_to admins_singers_path
     else
+      load_singer_genders
       render :new
     end
   end
@@ -39,6 +40,7 @@ class Admins::SingersController < ApplicationController
       redirect_to admins_singers_path
       flash[:success] = 'Singer Edit Successfully!'
     else
+      load_singer_genders
       render :edit
     end
   end
@@ -60,7 +62,7 @@ class Admins::SingersController < ApplicationController
   end
 
   def singer_params
-    params.require(:singer).permit(:name, :picture, :dob, :gender, :address)
+    params.require(:singer).permit(:name, :picture, :date_of_birth, :gender, :address)
   end
 
   def load_singer_genders

@@ -3,7 +3,12 @@ class Song < ApplicationRecord
   scope :top, -> {(order count_view: :desc).limit(10)}
 
   mount_uploader :picture, PictureUploader
-  mount_uploader :url_song, AudioUploader
+  mount_uploader :file_song, AudioUploader
+
+  validates :name, presence: true, length: { maximum: 50 }
+  validates_presence_of :picture
+  validates_presence_of :file_song
+  validates :content, presence: true
 
   # Categories_Song
   has_many :categories, through: :category_songs

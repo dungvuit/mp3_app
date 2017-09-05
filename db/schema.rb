@@ -122,16 +122,16 @@ ActiveRecord::Schema.define(version: 20170901083236) do
   create_table "singers", force: :cascade do |t|
     t.string   "name"
     t.string   "picture"
-    t.date     "dob"
-    t.integer  "gender",     default: 0, null: false
+    t.date     "date_of_birth"
+    t.integer  "gender",        default: 0, null: false
     t.string   "address"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "songs", force: :cascade do |t|
     t.string   "name"
-    t.string   "url_song"
+    t.string   "file_song"
     t.string   "picture"
     t.string   "content"
     t.integer  "count_view", default: 0
