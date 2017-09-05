@@ -29,12 +29,15 @@
           <div class="form-group pull-right">
             <%= text_field_tag :song_name, params[:search],
               placeholder: "Song name" %>
-            <%= text_field_tag :author_name, params[:search],
-              placeholder: "Author name" %>
-            <%= text_field_tag :category_name, params[:search],
-              placeholder: "Category name" %>
-            <%= text_field_tag :singer_name, params[:search],
-              placeholder: "Singer name" %>
+            <%= select_tag :author_name, options_from_collection_for_select(
+              Author.all, :name, :name, params[:seach]),
+                include_blank: "Choose Author Name" %>
+            <%= select_tag :category_name, options_from_collection_for_select(
+              Category.all, :name, :name, params[:seach]),
+                include_blank: "Choose Category Name" %>
+            <%= select_tag :singer_name, options_from_collection_for_select(
+              Singer.all, :name, :name, params[:seach]),
+                include_blank: "Choose Singer Name" %>
             <%= button_tag "Seach", class: "custom-btn" do %>
               <span class="glyphicon glyphicon-search"></span>
             <% end %>

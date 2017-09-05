@@ -24,8 +24,6 @@ class Admins::CategoriesController < ApplicationController
     if @category.save
       flash[:success] = "Create Category Successfully!"
       redirect_to admins_categories_path
-    else
-      render :new
     end
   end
 

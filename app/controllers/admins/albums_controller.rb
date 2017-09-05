@@ -25,7 +25,7 @@ class Admins::AlbumsController < ApplicationController
       flash[:success] = "Create Album Successfully!"
       redirect_to admins_albums_path
     else
-      render :new
+      load_data
     end
   end
 
@@ -36,6 +36,7 @@ class Admins::AlbumsController < ApplicationController
       redirect_to admins_albums_path
       flash[:success] = "Album Edit Successfully!"
     else
+      load_data
       render :edit
     end
   end

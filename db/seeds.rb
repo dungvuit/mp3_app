@@ -27,9 +27,9 @@ end
 50.times do |n|
   name = Faker::Book.author
   picture = File.open('app/assets/images/1304.jpg')
-  dob = Faker::Date.birthday(18, 65)
+  date_of_birth = Faker::Date.birthday(18, 65)
   address = Faker::Address.street_address
-  singer = Singer.create name: name, picture: picture, dob: dob,
+  singer = Singer.create name: name, picture: picture, date_of_birth: date_of_birth,
     address: address
 end
 
@@ -51,12 +51,12 @@ end
   name = Faker::Book.title
   content = Faker::Lorem.paragraphs
   picture = File.open('app/assets/images/1304.jpg')
-  url_song = File.open('app/assets/images/Noi-Nay-Co-Anh-Son-Tung-M-TP.mp3')
+  file_song = File.open('app/assets/images/Noi-Nay-Co-Anh-Son-Tung-M-TP.mp3')
   author_id = Faker::Number.between(1, 50)
-  category_ids = Faker::Number.between(1, 50)
+  category_ids = Faker::Number.between(1, 10)
   singer_ids = Faker::Number.between(1, 50)
   album_ids = Faker::Number.between(1, 50)
-  song = Song.create name: name, content: content, picture: picture, url_song: url_song,
+  song = Song.create name: name, content: content, picture: picture, file_song: file_song,
       author_id: author_id, category_ids: category_ids, singer_ids: singer_ids,
         album_ids: album_ids
 end

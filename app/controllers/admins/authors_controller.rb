@@ -23,8 +23,6 @@ class Admins::AuthorsController < ApplicationController
     if @author.save
       flash[:success] = "Create Author Successfully!"
       redirect_to admins_authors_path
-    else
-      render :new
     end
   end
 

@@ -3,7 +3,7 @@ class CreateSingers < ActiveRecord::Migration[5.0]
     create_table :singers do |t|
       t.string :name
       t.string :picture
-      t.date :dob
+      t.date :date_of_birth
       t.integer :gender, null: false, default: 0
       t.string :address
 

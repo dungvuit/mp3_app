@@ -28,8 +28,10 @@ gem 'bxslider-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'ransack'
 gem 'devise'
-gem "faker"
-gem "will_paginate"
+gem 'faker'
+gem 'will_paginate'
+gem 'carrierwave-i18n'
+
 
 group :development, :test do
   gem 'byebug', platform: :mri

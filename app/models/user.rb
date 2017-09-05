@@ -24,10 +24,11 @@ class User < ApplicationRecord
   validates :email, presence: true, length: {maximum: 255},
     format: {with: VALID_EMAIL_REGEX},
       uniqueness: {case_sensitive: false}
-  VALID_PASSWORD_REGEX = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
+  VALID_PASSWORD_REGEX = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/
   validates :password, presence: true,
     length: {minimum: 6}, allow_nil: true, format: {with: VALID_PASSWORD_REGEX, multiline: true,
-      message: "must be at least 8 characters and include one number and one letter."}
+      message: "must be at least 6 characters and include one number and one letter."}
+  validates :phonenumber, length: {maximum: 10}
 
   private
 

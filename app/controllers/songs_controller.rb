@@ -6,8 +6,8 @@ class SongsController < ApplicationController
 
   def index
     @songs = Song.top
-    @categories = Category.all
-    @albums = Album.all
+    @categories = Category.limit(5)
+    @albums = Album.limit(6)
   end
 
   def new
@@ -56,7 +56,7 @@ class SongsController < ApplicationController
   end
 
   def song_params
-    params.require(:song).permit :name, :content, :picture, :url_song,
+    params.require(:song).permit :name, :content, :picture, :file_song,
       :author_id, :category_ids, :singer_ids
   end
 
