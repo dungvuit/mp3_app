@@ -1,8 +1,6 @@
 jQuery(document).ready ($) ->
   # Comment
   $(document).on 'click', '#comment', ->
-    id = undefined
-    content = undefined
     id = $(this).attr('data_id')
     content = $('#content').val()
     $.ajax
@@ -14,7 +12,6 @@ jQuery(document).ready ($) ->
 
   # Delete Comment
   $(document).on 'click', '.delete-comment', ->
-    id = undefined
     id = $(this).attr('data_id')
     song_id = $(this).attr('song_id')
     $.ajax
@@ -25,8 +22,6 @@ jQuery(document).ready ($) ->
 
   # Edit comment
   $(document).on 'click', '.edit-comment', ->
-    id = undefined
-    song_id = undefined
     id = $(this).attr('data_id')
     song_id = $(this).attr('song_id')
     $('#cmt_' + id).hide()
@@ -46,9 +41,6 @@ jQuery(document).ready ($) ->
     $(this).hide()
     return
   $(document).on 'click', '.save', ->
-    id = undefined
-    song_id = undefined
-    content = undefined
     id = $(this).attr('data_id')
     song_id = $(this).attr('song_id')
     content = $('#cmt_text_' + id).val()
@@ -68,7 +60,6 @@ jQuery(document).ready ($) ->
 
   # Reply Comment
   $(document).on 'click', '.reply-comment', ->
-    id = undefined
     id = $(this).attr('data_id')
     $('#reply_text_' + id).show()
     $('#save-comment-reply_' + id).show()
@@ -76,7 +67,6 @@ jQuery(document).ready ($) ->
     $('#cancel-comment-reply_' + id).show()
     return
   $(document).on 'click', '.cancel-comment-reply', ->
-    id = undefined
     id = $(this).attr('data_id')
     $('#save-comment-reply_' + id).hide()
     $(this).hide()
@@ -84,10 +74,6 @@ jQuery(document).ready ($) ->
     $('#reply-comment_' + id).show()
     return
   $(document).on 'click', '.save-comment-reply', ->
-    id = undefined
-    song_id = undefined
-    content = undefined
-    parent_id = undefined
     id = $(this).attr('data_id')
     song_id = $(this).attr('song_id')
     content = $('#reply_text_' + id).val()
