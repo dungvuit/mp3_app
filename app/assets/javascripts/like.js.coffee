@@ -1,7 +1,6 @@
 jQuery(document).ready ($) ->
   # Like Song
   $(document).on 'click', '#like', ->
-    id = undefined
     id = $(this).attr('data_id')
     $.ajax
       url: '/likes'
@@ -12,7 +11,6 @@ jQuery(document).ready ($) ->
 
   # Dislike Song
   $(document).on 'click', '#dislike', ->
-    id = undefined
     id = $(this).attr('data_id')
     console.log $(this).attr('data_id')
     $.ajax

@@ -101,9 +101,11 @@ a {
     }
     .textarea_comment {
       display: none;
+      white-space: normal;
     }
     .textarea_reply {
       display: none;
+      white-space: normal;
     }
     .save-comment-reply {
       display: none;
@@ -573,7 +575,6 @@ a {
           &:hover {
             color: #3399ff;
             top: 50%;
-            transition: 0.3s;
             .custom-icon-play {
               transform: scale(4);
               transition: 0.3s;
