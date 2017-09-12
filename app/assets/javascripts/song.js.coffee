@@ -1,5 +1,13 @@
 $(document).ready ->
   document.addEventListener 'turbolinks:load', ->
+    $('#button-add-favorite-song').click ->
+      $('#button-hide-favorite-song').show()
+      $('#container-favorite-song').show('slow')
+      $(this).hide()
+    $('#button-hide-favorite-song').click ->
+      $('#container-favorite-song').hide('slow')
+      $('#button-add-favorite-song').show()
+      $(this).hide()
   # View content Song
     $('#show').click ->
       $('.content-song').css

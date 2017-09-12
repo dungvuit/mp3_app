@@ -49,10 +49,20 @@
   <audio src="<%= @song.file_song %>" type="audio/mpeg" controls loop>
   </audio>
   <div class="add-song-favorite">
-    <%= button_tag id: "add-favorite-song" do %>
+    <%= button_tag id: "button-add-favorite-song" do %>
+      <i class="fa fa-plus"></i> Add Playlist
+    <% end %>
+    <%= button_tag id: "button-hide-favorite-song" do %>
       <i class="fa fa-plus"></i> Add Playlist
     <% end %>
   </div>
+  <br>
+  <% if user_signed_in? %>
+    <div id="container-favorite-song">
+      <%= render 'favorites/list_favorite' %>
+      <%= render 'favorites/form_favorite' %>
+    </div>
+  <% end %>
 </p>
 <%= render 'songs/content_song' %>
 <%= render 'comments/form_comment' %>
