@@ -425,6 +425,10 @@ a {
             background: none;
             color: #000;
           }
+          &:focus {
+            background: none;
+            outline: none;
+          }
         }
       }
     }
@@ -434,6 +438,47 @@ a {
   .wrap-content {
     background: #fff;
     padding: 10px;
+    .add-song-favorite {
+      #button-hide-favorite-song {
+        display: none;
+      }
+    }
+    #container-favorite-song {
+      background: #f5f5f5;
+      position: relative;
+      padding: 20px;
+      display: none;
+      #delete-song-favorite-album {
+        background: #777777;
+      }
+      #delete-favorite-album {
+        cursor: pointer;
+        font-size: 18px;
+        &:hover {
+          color: #3399ff;
+        }
+      }
+      .form-add-song-favorite {
+        input {
+          border: 1px solid #d6d6d7;
+          height: 30px;
+          padding: 5px;
+          box-shadow: 10px 10px 5px #888888;
+          -webkit-box-shadow: 10px 10px 5px #888888;
+          -moz-box-shadow: 10px 10px 5px #888888;
+          &:hover {
+            color: #3399ff;
+            transition: 0.3s;
+          }
+        }
+        button {
+          height: 31px;
+          box-shadow: 10px 10px 5px #888888;
+          -webkit-box-shadow: 10px 10px 5px #888888;
+          -moz-box-shadow: 10px 10px 5px #888888;
+        }
+      }
+    }
     button {
       border: none;
       background: #4C6BA4;
@@ -505,6 +550,22 @@ a {
     .rank-song {
       max-width: 100%;
       .tab-song {
+        ul {
+          li {
+            a {
+              &:hover {
+                border-top: 1px solid #721799;
+                border-radius: 0;
+                transition: 0.3s;
+              }
+              &:focus {
+                outline: none;
+                border-top: 1px solid #721799;
+                border-radius: 0;
+              }
+            }
+          }
+        }
         .tab-content {
           overflow-y: auto;
           overflow-x: hidden;

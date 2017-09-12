@@ -26,6 +26,7 @@ class SongsController < ApplicationController
 
   def show
     @song.update_attribute(:count_view, @song.count_view + 1)
+    @favorites = Favorite.all
   end
 
   def edit; end
