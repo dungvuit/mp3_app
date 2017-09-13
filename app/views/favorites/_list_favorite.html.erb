@@ -2,17 +2,24 @@
   <% @favorites.each do |favorite| %>
     <% if favorite.user == current_user %>
       <div class="list-album-song-favorite">
-          <% if favorite.songs.present? %>
+        <% if favorite.favorited? @song %>
+            <i class="icon-playlist"></i>&nbsp;
+            <span class="count-favorite-song">
+              <div><%= favorite.name %></div>
+              <p>Number Song: <%= favorite.favorite_songs.count %></p>
+            </span>
             <% favorite.favorite_songs.each do |fsong| %>
-              <i class="fa fa-music icon-song"></i>&nbsp;
-              <%= favorite.name %>
-              <%= button_tag id: "delete-song-favorite-album", favorite_songs: fsong.id, data_id: @song.id do %>
-                <i  class="fa fa-check"></i>
+              <%= button_tag id: "delete-song-favorite-album", favorite_songs: fsong.id,
+                data_id: @song.id do %>
+                  <i  class="fa fa-check"></i>
               <% end %>
             <% end %>
           <% else %>
-            <i class="fa fa-music icon-song"></i>&nbsp;
-            <%= favorite.name %>
+            <i class="icon-playlist"></i>&nbsp;
+            <span class="count-favorite-song">
+              <div><%= favorite.name %></div>
+              <p>Number Song: <%= favorite.favorite_songs.count %></p>
+            </span>
             <%= button_tag id: "add-song-favorite-album", data_id: @song.id, favorite_id: favorite.id do %>
               <i class="fa fa-plus"></i>
             <% end %>

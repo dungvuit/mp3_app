@@ -90,6 +90,9 @@
           width: 760px;
           .tab-pane {
               margin-bottom: 30px;
+              max-height: 600px;
+              overflow-y: auto;
+              overflow-x: hidden;
               .list-item {
                 ul {
                   li {
