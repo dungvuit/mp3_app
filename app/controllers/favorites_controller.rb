@@ -1,9 +1,11 @@
 class FavoritesController < ApplicationController
 
   def create
-    @favorites = Favorite.all
-    @song = Song.find_by id: params[:song_id]
-    @favorite = @song.favorites.create!(user_id: current_user.id, name: params[:name])
+    if user_signed_in?
+      @favorites = Favorite.all
+      @song = Song.find_by id: params[:song_id]
+      @favorite = @song.favorites.create!(user_id: current_user.id, name: params[:name])
+    end
     respond_to do |format|
       format.js
     end

@@ -1,2 +1,6 @@
-$("#container-favorite-song").html('<%= j render "favorites/list_favorite" %>').
-  append('<%= j render "favorites/form_favorite" %>');
+<% if user_signed_in? %>
+  $("#container-favorite-song").html('<%= j render "favorites/list_favorite" %>').
+    append('<%= j render "favorites/form_favorite" %>');
+<% else %>
+  $("#singin_modal").modal('show');
+<% end %>

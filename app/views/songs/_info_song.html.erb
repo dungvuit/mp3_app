@@ -57,12 +57,10 @@
     <% end %>
   </div>
   <br>
-  <% if user_signed_in? %>
     <div id="container-favorite-song">
       <%= render 'favorites/list_favorite' %>
       <%= render 'favorites/form_favorite' %>
     </div>
-  <% end %>
 </p>
 <%= render 'songs/content_song' %>
 <%= render 'comments/form_comment' %>
