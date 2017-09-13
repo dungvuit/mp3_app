@@ -11,9 +11,10 @@ $ ->
 
   $(document).on 'click', '#delete-favorite-album', ->
     favorite_id = $(this).attr('favorite_id')
-    $.ajax
-      url: '/favorites/' + favorite_id
-      type: 'DELETE'
-      dataType: 'script'
-    return
+    if confirm('Are You Sure?')
+      $.ajax
+        url: '/favorites/' + favorite_id
+        type: 'DELETE'
+        dataType: 'script'
+      return
 

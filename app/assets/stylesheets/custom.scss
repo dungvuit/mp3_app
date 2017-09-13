@@ -448,12 +448,39 @@ a {
       position: relative;
       padding: 20px;
       display: none;
+      max-height: 300px;
+      .container-list-favorite {
+        max-height: 200px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        .list-album-song-favorite {
+          border-bottom: 1px solid #e6e6e6;
+          padding: 0 0 10px;
+          position: relative;
+          .icon-song {
+            color: #3399ff;
+          }
+          #delete-favorite-album {
+            right: 5px;
+            position: absolute;
+          }
+        }
+      }
+      .container-button-create-favorite {
+        margin-top: 20px;
+      }
       #delete-song-favorite-album {
         background: #777777;
+        position: absolute;
+        right: 30px;
+      }
+      #add-song-favorite-album {
+        position: absolute;
+        right: 30px;
       }
       #delete-favorite-album {
         cursor: pointer;
-        font-size: 18px;
+        font-size: 22px;
         &:hover {
           color: #3399ff;
         }

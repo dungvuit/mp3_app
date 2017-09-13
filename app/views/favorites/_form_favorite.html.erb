@@ -1,6 +1,8 @@
-<div class="form-add-song-favorite">
-  <%= text_field_tag :name, nil, placeholder: "Input name album favorite" %>
-  <%= button_tag id: "add-favorite", data_id: @song.id do %>
-    <i class="fa fa-plus"></i> Create Album
-  <% end %>
+<div class="container-button-create-favorite">
+  <div class="form-add-song-favorite">
+    <%= text_field_tag :name, nil, placeholder: "Input name album favorite" %>
+    <%= button_tag id: "add-favorite", data_id: @song.id do %>
+      <i class="fa fa-plus"></i> Create Album
+    <% end %>
+  </div>
 </div>

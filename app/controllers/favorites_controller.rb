@@ -4,7 +4,8 @@ class FavoritesController < ApplicationController
     if user_signed_in?
       @favorites = Favorite.all
       @song = Song.find_by id: params[:song_id]
-      @favorite = @song.favorites.create!(user_id: current_user.id, name: params[:name])
+      @favorite = @song.favorites.new(user_id: current_user.id, name: params[:name])
+      @favorite.save
     end
     respond_to do |format|
       format.js
