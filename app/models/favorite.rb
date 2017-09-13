@@ -13,4 +13,8 @@ class Favorite < ApplicationRecord
   def favorited? song
     favorite_songs.where(song_id: song.id).present?
   end
+
+  def find_favorite_id song
+    favorite_songs.where(song_id: song.id)
+  end
 end
