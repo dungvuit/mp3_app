@@ -455,10 +455,31 @@ a {
         overflow-x: hidden;
         .list-album-song-favorite {
           border-bottom: 1px solid #e6e6e6;
-          padding: 0 0 10px;
+          padding: 10px 0;
           position: relative;
+          .icon-playlist {
+            background-image: url("icon.png");
+            background-position: -3px -1759px;
+            display: block;
+            height: 25px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 25px;
+          }
+          .count-favorite-song {
+            bottom: 5px;
+            display: inline-block;
+            left: 25px;
+            position: absolute;
+            p {
+              color: #80179F;
+              margin: 0;
+            }
+          }
           .icon-song {
             color: #3399ff;
+            position: absolute;
           }
           #delete-favorite-album {
             right: 5px;
