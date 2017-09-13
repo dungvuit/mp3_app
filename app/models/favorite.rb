@@ -10,7 +10,7 @@ class Favorite < ApplicationRecord
     name.capitalize!
   end
 
-  def song_favorited? song
-    songs.pluck(:id).include?(song.id)
+  def favorited? song
+    favorite_songs.where(song_id: song.id).present?
   end
 end

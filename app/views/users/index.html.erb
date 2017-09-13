@@ -59,33 +59,35 @@
               <div class="col-12">
                 <div class="list-item full-width list-item-canhan">
                   <% @favorites.each do |favorite| %>
-                    <ul>
-                        <li id="playlistIO6898OB" data-name="Nước Ngoài" data-from="my" data-type="playlist" data-id="IO6898OB">
-                          <div class="e-item">
-                            <a title="Nước Ngoài" href="#" class="thumb pull-left _trackLink" tracking="_frombox=mymusic_myplaylist_">
-                              <img src="http://zmp3-photo-td.zadn.vn/skins/zmp3-v4/images/default2/220x220.jpg" alt="Nước Ngoài" height="90" width="90">
-                            </a>
-                            <h3 class="title-item ">
-                                <%= link_to favorite_path(favorite), class: "txt-primary big-size _trackLink" do %>
-                                  <%= favorite.name %>
-                                <% end %>
-                            </h3>
-                            <p class="title-sd-item">
-                              <span class="txt-info">
-                                  Ngày tạo: <span class="fn-date"><%= favorite.created_at.strftime("%H:%M %d/%m/%Y") %></span>
-                                    <span class="txt-info">Số bài hát: <%= favorite.favorite_songs.count %>
-                                    </span>
-                              </span>
-                            </p>
-                            <p class="title-sd-item"><span class="txt-info">Lượt nghe: <%= favorite.count_view %></span></p>
-                          </div>
-                          <div class="item-tool">
-                            <a title="Sửa playlist" href="/mymusic/myplaylist/edit/IO6898OB" class="zicon icon-edit-1"></a>
-                            <a title="Xóa playlist" class="zicon icon-remove-2 fn-rmitem" data-item="#playlistIO6898OB">
-                            </a>
-                          </div>
-                        </li>
-                    </ul>
+                    <% if favorite.user == current_user %>
+                      <ul>
+                          <li id="playlistIO6898OB" data-name="Nước Ngoài" data-from="my" data-type="playlist" data-id="IO6898OB">
+                            <div class="e-item">
+                              <a title="Nước Ngoài" href="#" class="thumb pull-left _trackLink" tracking="_frombox=mymusic_myplaylist_">
+                                <img src="http://zmp3-photo-td.zadn.vn/skins/zmp3-v4/images/default2/220x220.jpg" alt="Nước Ngoài" height="90" width="90">
+                              </a>
+                              <h3 class="title-item ">
+                                  <%= link_to favorite_path(favorite), class: "txt-primary big-size _trackLink" do %>
+                                    <%= favorite.name %>
+                                  <% end %>
+                              </h3>
+                              <p class="title-sd-item">
+                                <span class="txt-info">
+                                    Ngày tạo: <span class="fn-date"><%= favorite.created_at.strftime("%H:%M %d/%m/%Y") %></span>
+                                      <span class="txt-info">Số bài hát: <%= favorite.favorite_songs.count %>
+                                      </span>
+                                </span>
+                              </p>
+                              <p class="title-sd-item"><span class="txt-info">Lượt nghe: <%= favorite.count_view %></span></p>
+                            </div>
+                            <div class="item-tool">
+                              <a title="Sửa playlist" href="/mymusic/myplaylist/edit/IO6898OB" class="zicon icon-edit-1"></a>
+                              <a title="Xóa playlist" class="zicon icon-remove-2 fn-rmitem" data-item="#playlistIO6898OB">
+                              </a>
+                            </div>
+                          </li>
+                      </ul>
+                    <% end %>
                   <% end %>
                 </div>
               </div>
