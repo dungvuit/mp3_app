@@ -18,29 +18,13 @@
     <ul class="nav nav-tabs">
       <li class="active">
         <%= link_to "#menu1", "data-toggle": "tab" do %>
-          Việt Nam
-        <% end %>
-      </li>
-      <li>
-        <%= link_to "#menu2", "data-toggle": "tab" do %>
-          Âu Mỹ
-        <% end %>
-      </li>
-      <li>
-        <%= link_to "#menu3", "data-toggle": "tab" do %>
-          Hàn Quốc
+          Top 10
         <% end %>
       </li>
     </ul>
 
     <div class="tab-content">
       <div id="menu1" class="tab-pane fade in active">
-          <%= render 'songs/songs' %>
-      </div>
-      <div id="menu2" class="tab-pane fade">
-          <%= render 'songs/songs' %>
-      </div>
-      <div id="menu3" class="tab-pane fade">
           <%= render 'songs/songs' %>
       </div>
     </div>
