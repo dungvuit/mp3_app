@@ -26,5 +26,4 @@ end
     params.require(:user).permit :image, :name, :email, :phonenumber, :address, :password,
       :password_confirmation, :current_password
   end
-
 end
