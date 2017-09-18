@@ -7,7 +7,7 @@
         <% end %>
       </div>
       <div class="col-md-6">
-        <%= form_tag search_songs_path, class: "form-search-header", method: :get do %>
+        <%= form_tag search_songs_path, class: "form-search-header", method: :post do %>
             <%= text_field_tag :search, params[:search],
               placeholder:  t("views.layouts.header.text_search"),
                 id: "search-header" %>
@@ -102,21 +102,6 @@
           <li>
             <%= link_to root_path, title: t("views.layouts.header.home"), id: "home" do %>
               <i class="fa fa-home"></i>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to "#" do %>
-              Playlist
-            <% end %>
-          </li>
-          <li>
-            <%= link_to "#" do %>
-              Bảng xếp hạng
-            <% end %>
-          </li>
-          <li>
-            <%= link_to "#" do %>
-              Nghệ Sĩ
             <% end %>
           </li>
         </ul>
