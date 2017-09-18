@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :songs do
       resources :comments
       collection do
-        get 'search'
+        post 'search'
       end
     end
     resources :authors
