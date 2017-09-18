@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     root 'songs#index'
 
     devise_for :users, controllers: {registrations: "users/registrations",
-      sessions: "users/sessions", passwords: "users/passwords"}
+      sessions: "users/sessions", passwords: "users/passwords", confirmations: "users/confirmations"}
 
     resources :favorites
     resources :favorite_songs
