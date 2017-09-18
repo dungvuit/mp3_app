@@ -6,15 +6,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
     resource.save
     yield resource if block_given?
     if resource.persisted?
-        flash[:success] = "Welcome! You have signed up successfully."
-        sign_up(resource_name, resource)
-        respond_with resource, location: after_sign_up_path_for(resource)
+      flash[:success] = "Please check your email for active account.!"
+      redirect_to root_path
     else
       respond_to do |format|
         format.js
       end
     end
-end
+  end
 
   private
   def sign_up_params
@@ -26,4 +25,5 @@ end
     params.require(:user).permit :image, :name, :email, :phonenumber, :address, :password,
       :password_confirmation, :current_password
   end
+
 end
