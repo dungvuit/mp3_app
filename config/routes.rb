@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     resources :favorite_songs
     resources :songs do
       resources :comments
+      collection do
+        get 'search'
+      end
     end
     resources :authors
     resources :categorys

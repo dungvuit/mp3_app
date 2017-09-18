@@ -1,7 +1,7 @@
 class SongsController < ApplicationController
 
   before_action :check_user_logged, only: %i[new create]
-  before_action :find_song, except: %i[index new create]
+  before_action :find_song, except: %i[index new create search]
   before_action :load_data, only: %i[index new edit]
 
   def index
@@ -44,6 +44,14 @@ class SongsController < ApplicationController
     @song.destroy
     flash[:success] = "Song Delete Successfully!"
     redirect_to root_path
+  end
+
+  def search
+    if params[:search].present?
+      @songs = Song.search_song_client(params[:search])
+    else
+      @songs = Song.all
+    end
   end
 
   private
