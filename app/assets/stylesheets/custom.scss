@@ -206,12 +206,38 @@ a {
     }
   }
   .category-scroll {
-      max-height: 200vh;
-      overflow-x: hidden;
-      overflow-y: auto;
-      padding: 10px;
-      width: auto;
-      margin: 10px 0 0 0;
+    max-height: 200vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 10px;
+    width: auto;
+    margin: 10px 0 0 0;
+  }
+  .search-song-scroll {
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 10px;
+    width: auto;
+    margin: 10px 0 0 0;
+    .item-search-song {
+      border-bottom: 1px solid #dedede;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      position: relative;
+      .thumbnail-item-seach-song {
+        float: left;
+        padding-right: 10px;
+        img {
+          width: 77px;
+        }
+      }
+      .content-item-search-song {
+        div {
+          padding-bottom: 5px;
+        }
+      }
+    }
   }
   .bx-wrapper {
     z-index: 999;
