@@ -34,7 +34,7 @@ class Song < ApplicationRecord
   has_many :favorites, through: :favorite_songs
   has_many :favorite_songs, dependent: :destroy
 
-  scope :search_song_client, -> search{ where "name LIKE ?", "%#{search}" }
+  scope :search_song_client, -> search{ where "name LIKE ?", "%#{search}%" }
 
   scope :search_song, -> song_name, singer_name, category_name, author_name do
     where("songs.name LIKE ?","%#{song_name}%")

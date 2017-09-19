@@ -14,9 +14,10 @@ User.create!(
   password_confirmation = "matkhau123"
   phonenumber = Faker::PhoneNumber.phone_number
   address = Faker::Address.street_address
+  confirmed_at = Date.today
   user = User.create name: name, email: email, password: password,
     password_confirmation: password_confirmation, phonenumber: phonenumber,
-      address: address, image: image
+      address: address, image: image, confirmed_at: confirmed_at
 end
 
 50.times do |n|
