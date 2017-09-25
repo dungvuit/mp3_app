@@ -1,17 +1,19 @@
 User.create!(
   name: "admin",
   email: "admin@gmail.com",
-  password: "matkhau123",
-  password_confirmation: "matkhau123",
-  is_admin: true
+  password: "a123456",
+  password_confirmation: "a123456",
+  is_admin: true,
+  confirmed_at: Date.today,
+  image: File.open('app/assets/images/default-image.png')
   )
 
 30.times do |n|
   image = File.open('app/assets/images/default-image.png')
   name = "User#{n}"
   email = "user#{n}@gmail.com"
-  password = "matkhau123"
-  password_confirmation = "matkhau123"
+  password = "a123456"
+  password_confirmation = "a123456"
   phonenumber = Faker::PhoneNumber.phone_number
   address = Faker::Address.street_address
   confirmed_at = Date.today

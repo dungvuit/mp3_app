@@ -1,6 +1,6 @@
 class Singer < ApplicationRecord
-  scope :sort_by_create_at, -> {order created_at: :desc}
-  scope :search_by_name, -> search {where "name LIKE ?", "%#{search}%"}
+  scope :sort_by_create_at, -> { order created_at: :desc }
+  scope :search_by_name, ->(search) { where 'name LIKE ?', "%#{search}%" }
 
   validates :name, presence: true
   validates_presence_of :picture
@@ -16,7 +16,7 @@ class Singer < ApplicationRecord
   enum gender: { male: 0, female: 1 }
 
   class << self
-    def to_csv options = {}
+    def to_csv(options = {})
       CSV.generate options do |csv|
         csv << column_names
         all.each do |singer|
@@ -24,11 +24,18 @@ class Singer < ApplicationRecord
         end
       end
     end
+
+    def index_singers(params)
+      if params[:search].present?
+        Singer.search_by_name(params[:search])
+      else
+        Singer.sort_by_create_at
+      end.paginate page: params[:page], per_page: 5
+    end
   end
 
   def validate_on_create
-      if date_of_birth.present? && date_of_birth > 10.years.ago.to_date
-        errors.add :date_of_birth, 'You should be over 10 years old.'
-      end
+    return unless date_of_birth.present? && date_of_birth > 10.years.ago.to_date
+    errors.add :date_of_birth, 'You should be over 10 years old.'
   end
 end

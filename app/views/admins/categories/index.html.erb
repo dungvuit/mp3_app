@@ -31,14 +31,17 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-5">
+      <div class="col-md-4">
         <%= render "new" %>
       </div>
-      <div class="col-md-7">
+      <div class="col-md-8">
         <div class="table-responsive">
           <table class="table table-bordered table-hover">
             <%= render "list_category" %>
           </table>
+          <div class="paginate">
+           <%= will_paginate %>
+          </div>
         </div>
       </div>
     </div>

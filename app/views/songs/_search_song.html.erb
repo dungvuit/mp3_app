@@ -1,13 +1,22 @@
 <% @songs.each do |song| %>
   <div class="item-search-song">
     <div class="thumbnail-item-seach-song">
-      <%= image_tag song.picture %>
+      <%= link_to song_path(song) do %>
+        <%= image_tag song.picture %>
+        <span class="fa fa-play-circle-o custom-icon-play"></span>
+      <% end %>
     </div>
     <div class="content-item-search-song">
-      <div class="title-search-song"><%= song.name %></div>
-      <% song.categories.each do |category| %>
-        <div class="category-search-song"> Thể loại: <%= category.name %></div>
-      <% end %>
+      <div class="title-search-song">
+        <%= link_to song_path(song) do %>
+          <%= song.name %>
+        <% end %>
+      </div>
+        <div class="category-search-song">
+          Thể loại: <% song.categories.each do |category| %>
+            - <%= category.name %>
+          <% end %>
+        </div>
       <div class="count-view-search-song">Lượt nghe: <%= song.count_view %></div>
       <div class="created-date-search-song"><%= song.created_at.strftime('%H:%M %d/%m/%Y') %></div>
     </div>

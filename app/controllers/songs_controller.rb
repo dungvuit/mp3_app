@@ -1,12 +1,11 @@
 class SongsController < ApplicationController
-
   before_action :check_user_logged, only: %i[new create]
   before_action :find_song, except: %i[index new create search]
   before_action :load_data, only: %i[index new edit]
 
   def index
     @songs = Song.top
-    @categories = Category.limit(5)
+    @categories = Category.limit(3)
     @albums = Album.limit(6)
   end
 
@@ -17,7 +16,7 @@ class SongsController < ApplicationController
   def create
     @song = Song.new song_params
     if @song.save
-      flash[:success] = "Create Song Successfully!"
+      flash[:success] = 'Create Song Successfully!'
       redirect_to root_path
     else
       render :new
@@ -34,7 +33,7 @@ class SongsController < ApplicationController
   def update
     if @song.update_attributes song_params
       redirect_to root_path
-      flash[:success] = "Song Edit Successfully!"
+      flash[:success] = 'Song Edit Successfully!'
     else
       render :edit
     end
@@ -42,31 +41,41 @@ class SongsController < ApplicationController
 
   def destroy
     @song.destroy
-    flash[:success] = "Song Delete Successfully!"
+    flash[:success] = 'Song Delete Successfully!'
     redirect_to root_path
   end
 
+  # def search
+  #   if params[:search].present?
+  #     @songs = Song.search_song_client(params[:search])
+  #       .paginate page: params[:page], per_page: 5
+  #   else
+  #     @songs = Song.paginate page: params[:page], per_page: 5
+  #   end
+  # end
+
   def search
-    if params[:search].present?
-      @songs = Song.search_song_client(params[:search])
-    else
-      @songs = Song.all
-    end
+    @songs = if params[:search].present?
+               Song.search_song_client(params[:search])
+             else
+               Song
+             end.paginate page: params[:page], per_page: 5
   end
 
   private
 
   def find_song
     @song = Song.find_by id: params[:id]
-    unless @song
-      flash[:danger] = "Song not exits!"
-      redirect_to root_path
-    end
+    return if @song
+    flash[:danger] = 'Song not exits!'
+    redirect_to root_path
   end
 
   def song_params
-    params.require(:song).permit :name, :content, :picture, :file_song,
-      :author_id, :category_ids, :singer_ids
+    params.require(:song).permit(
+      :name, :content, :picture, :file_song, :author_id, :category_ids,
+      :singer_ids
+    )
   end
 
   def load_data

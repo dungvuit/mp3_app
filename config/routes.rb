@@ -7,24 +7,24 @@ Rails.application.routes.draw do
     devise_for :users, controllers: {registrations: "users/registrations",
       sessions: "users/sessions", passwords: "users/passwords", confirmations: "users/confirmations"}
 
-    resources :favorites
-    resources :favorite_songs
+    resources :favorites, only: %i[create show destroy]
+    resources :favorite_songs, only: %i[create destroy]
     resources :songs do
       resources :comments
       collection do
-        post 'search'
+        get 'search'
       end
     end
     resources :authors
-    resources :categorys
+    resources :categories
     resources :singers
     resources :albums do
       collection do
         get 'album_song'
       end
     end
-    resources :users
-    resources :likes, only: [:create, :destroy]
+    resources :users, only: :index
+    resources :likes, only: %i[create destroy]
 
     namespace :admins do
       resources :users

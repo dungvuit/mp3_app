@@ -12,10 +12,10 @@ jQuery(document).ready ($) ->
   # Dislike Song
   $(document).on 'click', '#dislike', ->
     id = $(this).attr('data_id')
-    console.log $(this).attr('data_id')
     $.ajax
       url: '/likes/' + id
       type: 'DELETE'
+      data: 'song_id=' + id
       dataType: 'script'
     return
   return

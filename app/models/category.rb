@@ -1,6 +1,5 @@
 class Category < ApplicationRecord
-
-  scope :limit_display, -> {(order created_at: :desc).limit(5)}
+  scope :limit_display, -> { (order created_at: :desc).limit(5) }
 
   validates :name, presence: true
 
@@ -12,21 +11,29 @@ class Category < ApplicationRecord
   has_many :albums, through: :album_categories
   has_many :album_categories, dependent: :destroy
 
-  scope :sort_by_create_at, -> {order created_at: :desc}
-  scope :search_by_name, -> search {where "name LIKE ?", "%#{search}%"}
+  scope :sort_by_create_at, -> { order created_at: :desc }
+  scope :search_by_name, ->(search) { where 'name LIKE ?', "%#{search}%" }
 
   def capitalize_name
     name.capitalize!
   end
 
   class << self
-    def to_csv options = {}
+    def to_csv(options = {})
       CSV.generate options do |csv|
         csv << column_names
         all.each do |category|
           csv << category.attributes.values_at(*column_names)
         end
       end
+    end
+
+    def index_categories(params)
+      if params[:search].present?
+        Category.search_by_name(params[:search])
+      else
+        Category.sort_by_create_at
+      end.paginate page: params[:page], per_page: 5
     end
   end
 end

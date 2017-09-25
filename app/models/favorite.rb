@@ -10,11 +10,11 @@ class Favorite < ApplicationRecord
     name.capitalize!
   end
 
-  def favorited? song
+  def favorited?(song)
     favorite_songs.where(song_id: song.id).present?
   end
 
-  def find_favorite_id song
+  def find_favorite_id(song)
     favorite_songs.where(song_id: song.id)
   end
 end
