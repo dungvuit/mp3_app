@@ -1,0 +1,22 @@
+AllCops:
+  Includes:
+    - Rakefile
+    - config.ru
+  Excludes:
+    - Rakefile
+    - bin/*
+    - test/**
+    - db/**/**
+    - config/**/**
+    - script/**/**
+    - Gemfile
+    - app/models/ckeditor/**
+    - app/uploaders/**
+Documentation:
+  Enabled: false
+AlignHash:
+  Enabled: false
+Metrics/MethodLength:
+  Max: 20
+Style/Lambda:
+  Enabled: false

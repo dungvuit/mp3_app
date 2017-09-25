@@ -1,0 +1,41 @@
+<% provide :title, "Categories" %>
+<div class="container">
+  <div class="wrap-content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="category-scroll">
+          <% @categories.each do |category| %>
+            <div class="playlist">
+              <h3>
+                <%= link_to category_path(category) do %>
+                  <%= category.name %> <i class="fa fa-angle-right"></i>
+                <% end %>
+              </h3>
+              <ul>
+                <div class="row">
+                  <% category.albums.each do |album| %>
+                    <% if album.songs.present? %>
+                      <div class="col-md-3">
+                        <li class="playlist-li">
+                          <%= link_to album_path(album) do %>
+                            <%= image_tag album.picture, class: "thumbnail-playlist" %>
+                            <span class="fa fa-play-circle-o custom-icon-play"></span>
+                          <% end %>
+                          <%= link_to album_path(album) do %>
+                            <p>
+                              <%= album.name %>
+                            </p>
+                          <% end %>
+                        </li>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
+              </ul>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

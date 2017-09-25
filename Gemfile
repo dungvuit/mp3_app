@@ -31,7 +31,7 @@ gem 'devise'
 gem 'faker'
 gem 'will_paginate'
 gem 'carrierwave-i18n'
-
+gem 'rubocop'
 
 group :development, :test do
   gem 'byebug', platform: :mri
