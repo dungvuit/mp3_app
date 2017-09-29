@@ -16,7 +16,7 @@
         <% end %>
       </td>
       <td><%= album.name %></td>
-      <td><%= album.singer.name %></td>
+      <td><%= album.singer.name if album.singer_id.present? %></td>
       <td>
         <% album.categories.each do |category| %>
           <%= category.name %>
