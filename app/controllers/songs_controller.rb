@@ -45,15 +45,6 @@ class SongsController < ApplicationController
     redirect_to root_path
   end
 
-  # def search
-  #   if params[:search].present?
-  #     @songs = Song.search_song_client(params[:search])
-  #       .paginate page: params[:page], per_page: 5
-  #   else
-  #     @songs = Song.paginate page: params[:page], per_page: 5
-  #   end
-  # end
-
   def search
     @songs = if params[:search].present?
                Song.search_song_client(params[:search])

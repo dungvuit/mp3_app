@@ -7,7 +7,9 @@ class User < ApplicationRecord
 
   scope :sort_by_create_at, -> { order created_at: :desc }
   scope :search_by_name, ->(search) { where 'name LIKE ?', "%#{search}%" }
-  scope :search_by_permision, ->(search_permision) { where is_admin: search_permision }
+  scope :search_by_permision, ->(search_permision) {
+    where is_admin: search_permision
+  }
 
   mount_uploader :image, PictureUploader
 

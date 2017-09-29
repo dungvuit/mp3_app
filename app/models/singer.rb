@@ -10,7 +10,7 @@ class Singer < ApplicationRecord
   has_many :songs, through: :singer_songs
   has_many :singer_songs, dependent: :destroy
 
-  has_many :album
+  has_many :album, dependent: :nullify
   mount_uploader :picture, PictureUploader
 
   enum gender: { male: 0, female: 1 }

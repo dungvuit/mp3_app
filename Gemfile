@@ -28,13 +28,23 @@ gem 'bxslider-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'ransack'
 gem 'devise'
-gem 'faker'
 gem 'will_paginate'
 gem 'carrierwave-i18n'
 gem 'rubocop'
+gem 'faker'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'rails-controller-testing'
+  gem 'capybara'
+end
+
+group :test do
+  gem 'shoulda-matchers'
+  gem 'database_cleaner'
+  gem 'shoulda-callback-matchers'
 end
 
 group :development do
