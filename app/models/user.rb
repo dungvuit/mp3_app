@@ -35,6 +35,16 @@ class User < ApplicationRecord
   validates :phonenumber, length: { maximum: 10 }
 
   class << self
+
+    def to_csv(options = {})
+      CSV.generate options do |csv|
+        csv << column_names
+        all.each do |user|
+          csv << user.attributes.values_at(*column_names)
+        end
+      end
+    end
+
     def index_users(params)
       if params[:search].present? &&
          params[:search_by_permision].present?
