@@ -10,7 +10,7 @@ module Admins
       respond_to do |format|
         format.html
         format.js
-        format.xls { send_data @users.to_csv(col_sep: "\t") }
+        format.xls { send_data User.to_csv(col_sep: "\t") }
       end
     end
 
