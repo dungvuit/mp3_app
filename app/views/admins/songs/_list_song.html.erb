@@ -5,6 +5,8 @@
     <th><%= t "views.admins.authors.text_form.name" %></th>
     <th><%= t "views.admins.categories.text_form.name" %></th>
     <th><%= t 'views.admins.singers.text_form.name' %></th>
+    <th>Count view</th>
+    <th>Count Like</th>
     <th class="action"><%= t "views.admins.form.action" %></th>
   </tr>
 </thead>
@@ -28,6 +30,8 @@
           <%= singer.name %>
         <% end %>
       </td>
+      <td><%= song.count_view %></td>
+      <td><%= song.likes.count %></td>
       <td>
         <%= link_to edit_admins_song_path song do %>
           <i class="glyphicon glyphicon-pencil"></i>

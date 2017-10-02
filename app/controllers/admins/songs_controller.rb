@@ -18,7 +18,7 @@ module Admins
       respond_to do |format|
         format.html
         format.js
-        format.xls { send_data @songs.to_csv(col_sep: "\t") }
+        format.xls { send_data Song.to_csv(col_sep: "\t") }
       end
     end
 
