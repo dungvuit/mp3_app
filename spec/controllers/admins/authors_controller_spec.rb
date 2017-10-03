@@ -21,7 +21,9 @@ RSpec.describe Admins::AuthorsController, type: :controller do
 
     it '#Edit author' do
       @author = FactoryGirl.create(:author)
-      patch :update, params: { id: @author.id, author: { name: Faker::Name.name } }
+      patch :update, params: {
+        id: @author.id, author: { name: Faker::Name.name }
+      }
       expect(response).to redirect_to(admins_authors_path)
     end
 
