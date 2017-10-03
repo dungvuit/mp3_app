@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
   before_action :find_song, only: %i[create destroy update]
 
   def create

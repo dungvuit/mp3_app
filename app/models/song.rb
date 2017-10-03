@@ -53,13 +53,14 @@ class Song < ApplicationRecord
 
   class << self
     def to_csv(options = {})
-      wanted_columns = [:name, :file_song, :count_view]
+      wanted_columns = %i[name file_song count_view]
       CSV.generate options do |csv|
-        csv << wanted_columns.insert(-1, :count_like, :author_name, :category_name)
+        csv << wanted_columns.insert(-1, :count_like, :author_name,
+                                     :category_name)
         all.each do |song|
           csv << song.attributes.values_at('name', 'file_song', 'count_view')
-            .insert(-1, song.likes.count, song.author.name,
-              song.categories.first.name)
+                     .insert(-1, song.likes.count, song.author.name,
+                             song.categories.first.name)
         end
       end
     end

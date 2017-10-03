@@ -21,7 +21,9 @@ RSpec.describe Admins::CategoriesController, type: :controller do
 
     it '#Edit category' do
       @category = FactoryGirl.create(:category)
-      patch :update, params: { id: @category.id, category: { name: Faker::Name.name } }
+      patch :update, params: {
+        id: @category.id, category: { name: Faker::Name.name }
+      }
       expect(response).to redirect_to(admins_categories_path)
     end
 

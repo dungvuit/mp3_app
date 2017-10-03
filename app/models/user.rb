@@ -35,7 +35,6 @@ class User < ApplicationRecord
   validates :phonenumber, length: { maximum: 10 }
 
   class << self
-
     def to_csv(options = {})
       CSV.generate options do |csv|
         csv << column_names
