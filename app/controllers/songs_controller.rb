@@ -4,8 +4,8 @@ class SongsController < ApplicationController
   before_action :load_data, only: %i[index new edit]
 
   def index
-    @songs = Song.top
-    @categories = Category.limit(3)
+    @songs = Song.includes(:singers).top
+    @categories = Category.includes(:albums, albums: :songs).limit(3)
     @albums = Album.limit(6)
   end
 
