@@ -32,7 +32,7 @@ class Category < ApplicationRecord
       if params[:search].present?
         Category.search_by_name(params[:search])
       else
-        Category.sort_by_create_at
+        Category.includes(:songs, :albums).sort_by_create_at
       end.paginate page: params[:page], per_page: 5
     end
   end

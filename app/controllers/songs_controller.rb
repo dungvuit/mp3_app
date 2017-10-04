@@ -47,9 +47,9 @@ class SongsController < ApplicationController
 
   def search
     @songs = if params[:search].present?
-               Song.search_song_client(params[:search])
+               Song.includes(:categories).search_song_client(params[:search])
              else
-               Song
+               Song.includes(:categories)
              end.paginate page: params[:page], per_page: 5
   end
 
