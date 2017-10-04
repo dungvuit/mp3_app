@@ -15,7 +15,7 @@ class AlbumsController < ApplicationController
   private
 
   def find_album
-    @album = Album.find_by id: params[:id]
+    @album = Album.includes(:songs, songs: :singers).find_by id: params[:id]
     return if @album
     flash[:danger] = 'Album not exist'
     redirect_to root_path

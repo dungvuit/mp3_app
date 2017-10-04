@@ -13,9 +13,7 @@
       <td>
         <ul>
           <% category.songs.each do |song| %>
-            <%= link_to admins_song_path(song) do %>
-              <li><%= song.name %></li>
-            <% end %>
+            <li><%= song.name %></li>
           <% end %>
         </ul>
       </td>

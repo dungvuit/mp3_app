@@ -13,7 +13,8 @@ module Admins
                                   params[:category_name],
                                   params[:author_name])
                else
-                 Song.sort_by_create_at
+                 Song.includes(:author, :categories, :singers)
+                     .sort_by_create_at
                end.paginate page: params[:page], per_page: 5
       respond_to do |format|
         format.html

@@ -30,7 +30,7 @@ class Album < ApplicationRecord
       if params[:search].present?
         Album.search_by_name(params[:search])
       else
-        Album.sort_by_create_at
+        Album.includes(:singer, :categories).sort_by_create_at
       end.paginate page: params[:page], per_page: 5
     end
   end

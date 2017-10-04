@@ -1,10 +1,11 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.all
+    @categories = Category.includes(:albums, albums: :songs)
   end
 
   def show
-    @category = Category.find_by id: params[:id]
+    @category = Category.includes(:albums, albums: :songs)
+                        .find_by id: params[:id]
     @albums = Album.all
   end
 end
