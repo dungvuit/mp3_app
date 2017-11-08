@@ -32,6 +32,14 @@ a {
   .content-comment {
     position: relative;
     height: auto;
+    .block-comment {
+      border-bottom: 1px solid #dedede;
+      margin-bottom: 10px;
+      .ul-user-reply {
+        border-top: 1px solid #dedede;
+        margin-top: 30px;
+      }
+    }
     .li-user-reply {
       padding: 15px 60px;
     }
