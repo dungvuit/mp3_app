@@ -9,13 +9,13 @@ $(document).ready ->
       $('#button-add-favorite-song').show()
       $(this).hide()
   # View content Song
-    $('#show').click ->
+    $(document).on 'click', '#show', ->
       $('.content-song').css
         height: '500'
         transition: '0.5s'
       $('#hide').show()
       $('#show').hide()
-    $('#hide').click ->
+    $(document).on 'click', '#hide', ->
       $('.content-song').css
         height: '200'
         transition: '0.5s'
