@@ -1,7 +1,7 @@
 <div class='content-comment'>
   <% @song.comments.each do |comment| %>
     <% unless comment.parent_id.present? %>
-      <ul>
+      <ul class="block-comment">
         <li>
           <div class='avatar-user-comment'>
             <%= image_tag comment.user.image, id: 'avatar-user-comment' %>
